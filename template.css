@@ -1,0 +1,16 @@
+#chart div {
+  display: inline-block;
+  background: #4285F4;
+  width: 20px;
+  margin-right: 3px;
+}
+circle {
+  fill: #4A988A;
+}
+text {
+  font-family: "Open Sans";
+  text-anchor: middle;
+  color: rgb(34,​ 34,​ 34);
+  font-size: 12px;
+}
+label{margin:0 0 10px}.lead{margin-bottom:20px;font-size:16px;font-weight:300;line-height:1.4}
