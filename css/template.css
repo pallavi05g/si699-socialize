@@ -34,12 +34,19 @@
   margin-top: -5px;
 }
 
-#text-location {
+#header-text {
   font-size: 20px;
   margin-top: 15px;
   display: inline-block;
   color: #ffffff;
   font-family: 'Lato', sans-serif;
+}
+
+#back {
+    height: 20px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 3%;
 }
 
 .content {
