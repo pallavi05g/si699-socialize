@@ -93,7 +93,24 @@
   text-align: justify;
 }
 
-#chart div {
+.launch {
+    background-color: #34BB66;
+    height: 100%;
+    width: 100%;
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    font-size: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/*#chart div {
   display: inline-block;
   background: #4285F4;
   width: 20px;
@@ -116,4 +133,4 @@ label {
   font-size:16px;
   font-weight:300;
   line-height:1.4
-}
+}*/

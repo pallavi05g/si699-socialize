@@ -1,7 +1,9 @@
-Launch
+Page                    Status              Assigned
+
+Launch                  Done                Purva
 Login
 Home
-Create new
+Create new              In progress         Purva
 Preview
 Activity details
 My profile
