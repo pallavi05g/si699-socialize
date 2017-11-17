@@ -36,12 +36,38 @@
         </div>
     </div>
     <div class="content">
-        some stuff
+        <form class="activity-form" action="index.html" method="post">
+            <img class="form-label" src="img/activity.svg">
+            <select id="activity-type" name="activity">
+                <option value="">Choose activity type</option>
+                <option value="">Local Tours</option>
+                <option value="">Adventure</option>
+                <option value="">Food</option>
+                <option value="">Camping</option>
+                <option value="">Trekking</option>
+                <option value="">Movies/Plays</option>
+            </select>
+            <img class="form-label" src="img/title.svg">
+            <input id="title-text" type="text" placeholder="Add Title"></input>
+            <img class="form-label" src="img/pin-dgrey.svg">
+            <input id="location-text" type="text" placeholder="Add Location"></input>
+            <img id="time-label" class="form-label" src="img/time.svg">
+            <input id="date-from" type="date"></input>
+            <input id="time-from" type="time"></input>
+            <input id="date-to" type="date"></input>
+            <input id="time-to" type="time"></input>
+            <img class="form-label" src="img/group.svg">
+            <input id="people" type="number" placeholder="Enter Number of People"></input>
+            <img class="form-label" src="img/hour-glass.svg">
+            <input id="date-validity" type="date"></input>
+            <input id="time-validity" type="time"></input>
+            <input class="btn" type="button" value="Next"></input>
+        </form>
     </div>
     <div class="footer">
       <ul>
         <li>
-          <a href="index.html"><img src="img/home-green.svg"></a>
+          <a href="index.html"><img src="img/home-lgrey.svg"></a>
         </li>
         <li>
           <a href="messages.html"><img src="img/messages-lgrey.svg"></a>
