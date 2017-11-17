@@ -1,7 +1,7 @@
 Page                    Status              Assigned
 
 Launch                  Done                Purva
-Login
+Login                   Done                Purva
 Home
 Create new              In progress         Purva
 Preview
