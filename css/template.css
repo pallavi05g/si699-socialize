@@ -40,11 +40,12 @@
 }
 
 #header-text {
-    font-size: 20px;
     margin-top: 15px;
     display: inline-block;
     color: #ffffff;
     font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
 }
 
 #back {
@@ -61,11 +62,123 @@
     margin-right: 3%;
     max-height: 80%;
     overflow:auto;
+    padding-bottom: 10%;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
 }
 
-.content img {
-    height: 25px;
-    width: auto;
+.form-label {
+    height: auto;
+    width: 35;
+    margin-right: 10%;
+    margin-left: 5%;
+    /*margin-bottom: 30px;*/
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+#time-label {
+    /*padding-top: 30px;*/
+}
+
+#activity-type, #title-text, #location-text, #people, #validity {
+    width: 65%;
+    height: 5%;
+    margin-bottom: 30px;
+    margin-top: -30px;
+    border: none;
+    border-bottom: solid 2px #34BB66;
+}
+
+#activity-type {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+#date-from, #date-validity {
+    width: 30%;
+    height: 5%;
+    margin-bottom: 30px;
+    margin-top: -30px;
+    border: none;
+    border-bottom: solid 2px #34BB66;
+}
+
+ #date-to {
+     width: 30%;
+     height: 5%;
+     margin-bottom: 30px;
+     margin-top: -30px;
+     margin-left: 27%;
+     border: none;
+     border-bottom: solid 2px #34BB66;
+ }
+
+#time-from, #time-to, #time-validity {
+    width: 30%;
+    height: 5%;
+    margin-bottom: 30px;
+    margin-top: -30px;
+    margin-left: 5%;
+    border: none;
+    border-bottom: solid 2px #34BB66;
+}
+
+.btn {
+    background-color: #34BB66;
+    color: #ffffff;
+    box-sizing: border-box;
+    line-height: 2;
+}
+
+.btn:hover {
+    background-color: none;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+.login {
+    width: 100%;
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login h1 {
+    font-size: 60px;
+    color: #34BB66;
+    font-weight: 700;
+}
+
+.fb-btn {
+    background-color: #3b5998;
+    width: 80%;
+    font-size: 20px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    font-weight: 300;
+}
+
+.google-btn {
+    background-color: #d62d20;
+    width: 80%;
+    font-size: 20px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    font-weight: 300;
+}
+
+.fa-facebook-official, .fa-google {
+    margin-right: 10px;
 }
 
 .footer {
@@ -82,7 +195,6 @@
 
 .footer img {
     height: 20px;
-  /*display: inline-block;*/
 }
 
 .footer ul {
