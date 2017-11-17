@@ -13,6 +13,6 @@ History
 search
 Upload image
 messages                In progress         Ling
-message chat window     In progress			Ling
-notifications           In progress			Ling
-settings                In progress			Ling
+message chat window     In progress		Ling
+notifications           In progress		Ling
+settings                In progress		Ling
