@@ -12,7 +12,7 @@ Interested
 History
 search
 Upload image
-messages
-message chat window
-notifications
-settings
+messages                In progress         Ling
+message chat window     In progress			Ling
+notifications           In progress			Ling
+settings                In progress			Ling
