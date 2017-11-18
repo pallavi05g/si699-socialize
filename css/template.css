@@ -45,11 +45,7 @@
     color: #ffffff;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
-<<<<<<< HEAD
-    font-size: 20px;
-=======
     font-size: 16px;
->>>>>>> a2b412aac892d4e9c17a24e8cc7114488317c6d1
 }
 
 #back {
@@ -60,10 +56,7 @@
 }
 
 .content {
-    /*margin-top: 5%;*/
     margin-bottom: 10%;
-    margin-left: 3%;
-    margin-right: 3%;
     max-height: 100%;
     overflow:auto;
     padding-bottom: 10%;
@@ -137,7 +130,6 @@ button:focus {
     height: 4%;
     width: 50%;
     line-height: 1;
-
 }
 
 #nxt-btn {
@@ -203,9 +195,8 @@ button:focus {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 40px;
+    height: 45px;
     padding-top: 7px;
-    padding-bottom: 8px;
     margin-right: 10px;
     border-top: solid 1px #d3d3d3;
     background-color: #ffffff;
@@ -309,4 +300,26 @@ a:hover {
 }
 .card-deck{
     margin-bottom: 10px;
+}
+
+.top-nav {
+    width: 100%;
+    height: 45px;;
+    margin-bottom: 5%;
+}
+
+.top-nav button {
+    height: 100%;
+    background-color: #ffffff;
+    float: left;
+    padding: 10px 24px;
+    color: #000000;
+    border: none;
+    border-right: solid 1px #d3d3d3;
+    border-bottom: solid 1px #d3d3d3;
+    width: 33.3%;
+}
+
+.top-nav .active-btn {
+    border-bottom: solid 2px #34BB66;
 }
