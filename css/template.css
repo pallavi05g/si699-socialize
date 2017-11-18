@@ -33,20 +33,19 @@
 }
 
 #pin-location {
-    height: 25px;
+    height: 20px;
     margin-right: 5px;
     display: inline-block;
     margin-top: -5px;
 }
 
 #header-text {
-    margin-top: 11px;
+    margin-top: 13px;
     display: inline-block;
     color: #ffffff;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
-    font-size: 18px;
-    /*text-align:center;*/
+    font-size: 16px;
 }
 
 #back {
