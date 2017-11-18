@@ -2,34 +2,17 @@ Page                    Status              Assigned
 
 Launch                  Done                Purva
 Login                   Done                Purva
-<<<<<<< HEAD
 Home                    In progress         Pallavi
 Create new              Front end done      Purva
 Preview                                     Pallavi
 Activity details                            Pallavi
-My profile                                  Purva
+My profile              In progress         Purva
 Edit profile                                Purva
 Interested                                  Pallavi
 History                                     Pallavi
 search                                      Purva
 Upload image                                Purva
-messages                                    Ling
-message chat window                         Ling
-notifications                               Ling
-settings                                    Ling
-=======
-Home
-Create new              In progress         Purva
-Preview
-Activity details
-My profile
-Edit profile
-Interested
-History
-search
-Upload image
 messages                In progress         Ling
-message chat window     In progress		Ling
-notifications           In progress		Ling
-settings                In progress		Ling
->>>>>>> 9f85fabc2c7082080942a1bf9b707ee573a0b037
+message chat window     In progress         Ling
+notifications           In progress         Ling
+settings                In progress         Ling
