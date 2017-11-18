@@ -29,39 +29,87 @@
 </head>
 <body>
     <div class="header">
-        <img id="notif" src="img/notification.svg">
+        <a href="notifications.html"><img id="notif" src="img/notification.svg"></a>
         <div class="page-title">
-          <img id="back" src="img/back-white.svg">
+          <a href="index.html"><img id="back" src="img/back-white.svg"></a>
           <p id="header-text">Create Activity</p>
         </div>
     </div>
     <div class="content">
         <form class="activity-form" action="index.html" method="post">
-            <img class="form-label" src="img/activity.svg">
-            <select id="activity-type" name="activity">
-                <option value="">Choose activity type</option>
-                <option value="">Local Tours</option>
-                <option value="">Adventure</option>
-                <option value="">Food</option>
-                <option value="">Camping</option>
-                <option value="">Trekking</option>
-                <option value="">Movies/Plays</option>
-            </select>
-            <img class="form-label" src="img/title.svg">
-            <input id="title-text" type="text" placeholder="Add Title"></input>
-            <img class="form-label" src="img/pin-dgrey.svg">
-            <input id="location-text" type="text" placeholder="Add Location"></input>
-            <img id="time-label" class="form-label" src="img/time.svg">
-            <input id="date-from" type="date"></input>
-            <input id="time-from" type="time"></input>
-            <input id="date-to" type="date"></input>
-            <input id="time-to" type="time"></input>
-            <img class="form-label" src="img/group.svg">
-            <input id="people" type="number" placeholder="Enter Number of People"></input>
-            <img class="form-label" src="img/hour-glass.svg">
-            <input id="date-validity" type="date"></input>
-            <input id="time-validity" type="time"></input>
-            <input class="btn" type="button" value="Next"></input>
+            <div class="row centered">
+                <div class="col-xs-offset-1 col-xs-2">
+                    <img class="form-label" src="img/activity.svg">
+                </div>
+                <div class="col-xs-9">
+                    <select id="activity-type" name="activity">
+                        <option value="">Choose activity type</option>
+                        <option value="">Local Tours</option>
+                        <option value="">Adventure</option>
+                        <option value="">Food</option>
+                        <option value="">Camping</option>
+                        <option value="">Trekking</option>
+                        <option value="">Movies/Plays</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row centered">
+                <div class="col-xs-offset-1 col-xs-2">
+                    <img class="form-label" src="img/title.svg">
+                </div>
+                <div class="col-xs-9">
+                    <input id="title-text" type="text" placeholder="Add Title"></input>
+                </div>
+            </div>
+            <div class="row centered">
+                <div class="col-xs-offset-1 col-xs-2">
+                    <img class="form-label" src="img/pin-dgrey.svg">
+                </div>
+                <div class="col-xs-9">
+                    <input id="location-text" type="text" placeholder="Add Location"></input>
+                </div>
+            </div>
+            <div class="row centered">
+                <div class="col-xs-offset-1 col-xs-2">
+                    <img id="time-label" class="form-label" src="img/time.svg">
+                </div>
+                <div class="col-xs-9 left">
+                    <input id="date-from" type="date"></input>
+                    <input id="time-from" type="time"></input>
+                </div>
+                <div class="col-xs-offset-3 col-xs-9 left">
+                    <input id="date-to" type="date"></input>
+                    <input id="time-to" type="time"></input>
+                </div>
+            </div>
+            <div class="row centered">
+                <div class="col-xs-offset-1 col-xs-2">
+                    <img class="form-label" src="img/group.svg">
+                </div>
+                <div class="col-xs-9">
+                    <input id="people" type="number" placeholder="Enter Number of People"></input>
+                </div>
+            </div>
+            <div class="row centered">
+                <div class="col-xs-offset-1 col-xs-2">
+                    <img class="form-label" src="img/hour-glass.svg">
+                </div>
+                <div class="col-xs-9 left">
+                    <input id="date-validity" type="date"></input>
+                    <input id="time-validity" type="time"></input>
+                </div>
+            </div>
+            <div class="row centered">
+                <div class="col-xs-offset-1 col-xs-2">
+                    <img class="form-label" src="img/upload.svg">
+                </div>
+                <div class="col-xs-9 left">
+                    <input class="btn" id= "img-btn" type="button" value="Add Images"></input>
+                </div>
+            </div>
+            <div class="row right">
+                <a href="create-preview.html" class="btn" id="nxt-btn" type="button">Next<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+            </div>
         </form>
     </div>
     <div class="footer">
