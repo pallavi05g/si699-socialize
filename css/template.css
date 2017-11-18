@@ -45,7 +45,15 @@
     color: #ffffff;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
+<<<<<<< HEAD
     font-size: 16px;
+=======
+<<<<<<< HEAD
+    font-size: 22px;
+=======
+    font-size: 18px;
+>>>>>>> a2b412aac892d4e9c17a24e8cc7114488317c6d1
+>>>>>>> b3f989d9f87e27e929f99bc7d2462f5b102bee3e
 }
 
 #back {
@@ -195,7 +203,11 @@ button:focus {
     position: fixed;
     bottom: 0;
     width: 100%;
+<<<<<<< HEAD
     height: 45px;
+=======
+    height: 44px;
+>>>>>>> b3f989d9f87e27e929f99bc7d2462f5b102bee3e
     padding-top: 7px;
     margin-right: 10px;
     border-top: solid 1px #d3d3d3;
@@ -203,7 +215,7 @@ button:focus {
 }
 
 .footer img {
-    height: 18px;
+    height: 20px;
 }
 
 .footer ul {
