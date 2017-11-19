@@ -28,16 +28,21 @@
 </head>
 <body>
     <div class="header">
-        <img id="notif" src="img/notification.svg">
+        <a href="notifications.html"><img id="notif" src="img/notification.svg"></a>
         <div class="page-title">
-          <img id="pin-location" src="img/pin-white.svg">
-          <p id="header-text">Ann Arbor, MI</p>
+          <p id="header-text">Search</p>
         </div>
     </div>
     <div class="content">
-        <h1>Socialize</h1>
-        <p class="lead">Your Social Companion. Be it local tours, adventure, food or even treks</p>
-        <button class="btn btn-primary">Sign in using <i class="fa fa-facebook-official"></i></button>
+        <form class="search" action="#" method="post">
+
+            <input class="searchbar" type="search" placeholder="Search for an activity">
+                <a href="#"><img id="search-back" src="img/backarrow.svg"></a>   <!--on click should take back to prev page https://www.w3schools.com/jsref/met_his_back.asp-->
+                <a href="#"><img id="search-mic" src="img/mic.svg"></a> <!-- on click should open microphone on phone-->
+            </input>
+        </form>
+
+
     </div>
     <div class="footer">
       <ul>

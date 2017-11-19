@@ -48,10 +48,10 @@
     font-size: 18px;
 }
 
-#back {
+.back {
     height: 20px;
     float: left;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-left: 3%;
 }
 
@@ -65,8 +65,8 @@
     font-size: 18px;
 }
 
-.activity-form {
-    margin-top: 10%;
+.activity-form, .profile-form {
+    margin-top: 45px;
     font-size: 16px;
 }
 
@@ -129,20 +129,6 @@ button:focus {
     background-color: none;
     color: #ffffff;
     box-sizing: border-box;
-}
-
-#img-btn {
-    height: 4%;
-    width: 50%;
-    line-height: 1;
-    margin-top: 7px;
-}
-
-#nxt-btn {
-    position: absolute;
-    bottom: 10%;
-    right: 10%;
-    width: 100px;
 }
 
 .fa-chevron-right {
@@ -404,7 +390,6 @@ a:hover {
     width: 100%;
     height: 45px;;
     margin-bottom: 5%;
-
 }
 
 .top-nav button {
@@ -433,7 +418,7 @@ a:hover {
 }
 
 .pic-edit {
-    height: 5%;
+    height: 25px;
     position: relative;
     bottom: 0;
     float:right;
@@ -445,7 +430,6 @@ a:hover {
     height: auto;
     text-align: center;
     margin-bottom: 15px;
-
 }
 
 .profile-text {
@@ -489,4 +473,51 @@ a:hover {
     font-size: 16px;
     color: #757575;
     text-align: center;
+}
+
+.profile-field {
+    width: 90%;
+    height: 5%;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: solid 2px #34BB66;
+}
+
+/*secondary buttons*/
+.sec-btn {
+    height: 4%;
+    line-height: 1;
+    margin-top: 7px;
+    margin-right: 10px;
+}
+
+/*primary buttons - for form submit action*/
+.submit-btn {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    width: 100px;
+    margin-left:-50px;
+}
+
+.searchbar {
+    width: 100%;
+    height: 40px;
+    border: solid 1px #d3d3d3;
+    padding-left: 40px;
+    font-size: 16px;
+}
+
+#search-back {
+    height: 20px;
+    position: fixed;
+    top: 60px;
+    left: 10px;
+}
+
+#search-mic {
+    height: 20px;
+    position: fixed;
+    top: 60px;
+    right: 10px;
 }

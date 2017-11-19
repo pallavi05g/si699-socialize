@@ -7,11 +7,11 @@ Create new              Done                Purva
 Preview                                     Pallavi
 Activity details                            Pallavi
 My profile              Done                Purva
-Edit profile            In Progress         Purva
+Edit profile            Done                Purva
 Interested                                  Pallavi
 History                                     Pallavi
-search                                      Purva
-Upload image                                Purva
+search                  Done                Purva
+Upload image            On Hold             Purva
 messages                In progress         Ling
 message chat window     In progress         Ling
 notifications           In progress         Ling
