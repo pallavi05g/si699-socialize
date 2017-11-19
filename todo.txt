@@ -3,11 +3,11 @@ Page                    Status              Assigned
 Launch                  Done                Purva
 Login                   Done                Purva
 Home                    In progress         Pallavi
-Create new              Front end done      Purva
+Create new              Done                Purva
 Preview                                     Pallavi
 Activity details                            Pallavi
-My profile              In progress         Purva
-Edit profile                                Purva
+My profile              Done                Purva
+Edit profile            In Progress         Purva
 Interested                                  Pallavi
 History                                     Pallavi
 search                                      Purva
