@@ -14,5 +14,5 @@ search                  Done                Purva
 Upload image            On Hold             Purva
 messages                In progress         Ling
 message chat window     In progress         Ling
-notifications           In progress         Ling
-settings                In progress         Ling
+notifications           Done                Ling
+settings                Done                Ling
