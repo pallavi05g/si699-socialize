@@ -497,10 +497,56 @@ a:hover {
     width: 40px;
 }
 
+/*---------------------- Ling ----------------------------*/
 
+.settings-container {
+    background-color: #F8F8F8;
+    height: 100%;
+}
 
+.settings-container img {
+    width: 8%;
+    display: inline-block;
+}
 
+.help {
+    background-color: white;
+    font-family: lato;
+    font-size:16px ;
+    margin-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+}
 
+.privacy {
+    border-top: thick solid #F8F8F8;
+    background-color: white;
+    font-family: lato;
+    font-size:16px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+}
+
+#firstp {
+    padding-left: 5%;
+    display: inline-block;
+}
+
+#lastp {
+    padding-left: 5%;
+    display: inline-block;
+}
+
+.logout p {
+    color: red;
+    text-align: center;
+    background-color: white;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-family: lato;
+    font-size:16px ;
+}
 
 
 
