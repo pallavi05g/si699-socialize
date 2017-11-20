@@ -223,6 +223,8 @@ button:focus {
 
 .centered {
     text-align: center;
+    color: #000;
+    text-decoration: none;
 }
 
 .justify {
@@ -268,6 +270,10 @@ a:hover {
     margin-top: 5%;
 }
 
+.card a{
+    text-decoration: none;
+}
+
 .card ul{
     width: 100%;
     padding-left: 1%;
@@ -301,8 +307,64 @@ a:hover {
     height: auto;
 }
 
+.default-card{
+    background: #FCD049;
+    height: 175px;
+    width: auto;
+    opacity: 0.8;
+}
+
+.tour-card{
+    background: #FCD049;
+    height: 175px;
+    width: auto;
+    opacity: 0.8;
+}
+
+.food-card{
+    background: #27ae60;
+    height: 175px;
+    width: auto;
+    opacity: 0.8;
+}
+
+.adv-card{
+    background: #bb6bd9;
+    height: 175px;
+    width: auto;
+    opacity: 0.8;
+}
+
+.sports-card{
+    background: #FCD049;
+    height: 175px;
+    width: auto;
+    opacity: 0.8;
+}
+
+.movie-card{
+    background: #FCD049;
+    height: 175px;
+    width: auto;
+    opacity: 0.8;
+}
+
+.camping-card{
+    background: #FCD049;
+    height: 175px;
+    width: auto;
+    opacity: 0.8;
+}
+
+.trekking-card{
+    background: #FCD049;
+    height: 175px;
+    width: auto;
+    opacity: 0.8;
+}
+
 .card-overlay-details{
-    padding-top: 15%;
+    padding-top: 18%;
 }
 
 .card .card-overlay-details img{
@@ -319,6 +381,7 @@ a:hover {
     display: inline;
     padding-left: 5px;
     padding-right: 5px;
+    color: #ffffff;
 }
 
 .card-overlay-details .group {
@@ -326,25 +389,113 @@ a:hover {
 }
 
 .icon-top-right{
-    height: 16px;
-    margin-top: 2%;
+    height: 20px;
+    margin-top: 1%;
+    float:right;
+    opacity: 0.6;
+}
+
+.icon-top-right-interested{
+    height: 20px;
+    margin-top: 1%;
     float:right;
 }
 
 .card-heading {
     display: inline;
+    color: #ffffff;
 }
 
+.home-top-nav {
+    width: 100%;
+    height: 45px;;
+    margin-bottom: 5%;
+}
 
+.home-top-nav button {
+    height: 100%;
+    background-color: #ffffff;
+    padding: 10px 24px;
+    color: #000000;
+    border: none;
+    border-right: solid 1px #d3d3d3;
+    border-bottom: solid 1px #d3d3d3;
+    font-size: 16px;
+    width: 100%;
+}
 
+.home-top-nav .active-btn {
+    border-bottom: solid 2px #34BB66;
+}
 
+.home-btn {
+    margin: 1%;
+    border-radius: 30px;
+}
 
+.home-nav-container{
+    background-color: #fff;
+    border-bottom: solid 1px #d3d3d3;
+    padding: 2%;
+}
 
+.overlay-btn{
+    position: static;
+    margin-left: 82%;
+    width: auto;
+    height: 50px;
+}
 
+.activity-label-right {
+    width: 35px;
+    height: auto;
+    text-align: center;
+    margin-bottom: 15px;
+    margin-left: 180px;
+}
 
+.activity-text-right {
+    padding-top: 5px;
+}
 
+.activity-label {
+    width: 35px;
+    height: auto;
+    text-align: center;
+    margin-bottom: 15px;
+}
 
+.activity-label-only {
+    width: 35px;
+    height: auto;
+    text-align: center;
+    margin-bottom: 15px;
+    margin-left: 75px;
+}
 
+.activity-text {
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.activity-text-only {
+    padding-left: 40px;
+}
+
+.activity-details{
+    padding-left: 10px;
+    padding-right: 10px;
+    align-content: center;
+}
+
+.activity-badges {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.activity-badges img {
+    width: 40px;
+}
 
 
 

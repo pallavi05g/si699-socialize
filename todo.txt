@@ -2,14 +2,14 @@ Page                    Status              Assigned
 
 Launch                  Done                Purva
 Login                   Done                Purva
-Home                    In progress         Pallavi
+Home                    Done                Pallavi
 Create new              Done                Purva
-Preview                                     Pallavi
-Activity details                            Pallavi
+Preview                 In Progress         Pallavi
+Activity details        Done                Pallavi
 My profile              Done                Purva
 Edit profile            Done                Purva
-Interested                                  Pallavi
-History                                     Pallavi
+Interested              Done                Pallavi
+History                 Done                Pallavi
 search                  Done                Purva
 Upload image            On Hold             Purva
 messages                In progress         Ling
