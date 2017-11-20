@@ -549,7 +549,54 @@ a:hover {
     font-size:16px ;
 }
 
+.person1 {
+    background-color: white;
+    font-family: lato;
+    font-size:16px ;
+    margin-top: 3%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+}
 
+.person2 {
+    border-top: thin solid #E8E8E8;
+    background-color: white;
+    font-family: lato;
+    font-size:16px;
+    padding-top: 3%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+}
+
+.person3 {
+    border-top: thin solid #E8E8E8;
+    background-color: white;
+    font-family: lato;
+    font-size:16px;
+    padding-top: 3%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+}
+
+.notif-title {
+    padding-left: 5%;
+    display: inline-block;
+    width: 78%;
+}
+
+.notif-host {
+    font-family: lato;
+    font-size:14px;
+    color: grey;
+    padding-left: 14%;
+}
+
+.notif-time {
+    display: inline-block;
+    font-size:14px;
+    color: grey;
+    width: 10%;
+}
 
 
 
