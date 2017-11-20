@@ -549,6 +549,16 @@ a:hover {
     font-size:16px ;
 }
 
+.notif-container {
+    background-color: #F8F8F8;
+    height: 100%;
+}
+
+.notif-container img {
+    width: 11%;
+    display: inline-block;
+}
+
 .person1 {
     background-color: white;
     font-family: lato;
@@ -581,14 +591,14 @@ a:hover {
 .notif-title {
     padding-left: 5%;
     display: inline-block;
-    width: 78%;
+    width: 75%;
 }
 
 .notif-host {
     font-family: lato;
     font-size:14px;
     color: grey;
-    padding-left: 14%;
+    padding-left: 17%;
 }
 
 .notif-time {
