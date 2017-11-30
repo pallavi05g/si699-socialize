@@ -314,42 +314,42 @@ a:hover {
 }
 
 .food-card{
-    background: #27ae60;
+    background: #A8C8DA;
     height: 175px;
     width: auto;
     opacity: 0.8;
 }
 
 .adv-card{
-    background: #bb6bd9;
+    background: #FA9FA4;
     height: 175px;
     width: auto;
     opacity: 0.8;
 }
 
 .sports-card{
-    background: #FCD049;
+    background: #B3DFF5;
     height: 175px;
     width: auto;
     opacity: 0.8;
 }
 
 .movie-card{
-    background: #FCD049;
+    background: #F07077;
     height: 175px;
     width: auto;
     opacity: 0.8;
 }
 
 .camping-card{
-    background: #FCD049;
+    background: #A8C8DA;
     height: 175px;
     width: auto;
     opacity: 0.8;
 }
 
 .trekking-card{
-    background: #FCD049;
+    background: #CAE4D3;
     height: 175px;
     width: auto;
     opacity: 0.8;
