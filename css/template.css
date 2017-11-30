@@ -247,7 +247,7 @@ button:focus {
 }
 
 a:hover {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 /*.row {
@@ -257,11 +257,13 @@ a:hover {
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
     width: 100%;
-    padding-bottom: 1%;
     margin-bottom: 5%;
     margin-top: 5%;
+}
+
+.card:hover {
+    text-decoration: none;
 }
 
 .card a{
@@ -270,10 +272,10 @@ a:hover {
 
 .card ul{
     width: 100%;
-    padding-left: 1%;
-    padding-right: 1%;
-    margin-top: 3%;
-    margin-bottom: 3%;;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .card ul>li{
@@ -290,10 +292,6 @@ a:hover {
 .card li>img {
     height: 20px;
     margin: 2px;
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .img {
@@ -358,7 +356,7 @@ a:hover {
 }
 
 .card-overlay-details{
-    padding-top: 18%;
+    padding-top: 70px;
 }
 
 .card .card-overlay-details img{
@@ -434,22 +432,22 @@ a:hover {
 }
 
 .overlay-btn{
-    position: static;
-    margin-left: 82%;
-    width: auto;
-    height: 50px;
+    width: 60px;
+    height: auto;
+    position: fixed; /* Fixed/sticky position */
+    bottom: 60px; /* Place the button at the bottom of the page */
+    right: 20px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
 }
 
 .activity-label-right {
-    width: 35px;
-    height: auto;
-    text-align: center;
+    width: auto;
+    height: 35px;
     margin-bottom: 15px;
-    margin-left: 180px;
 }
 
 .activity-text-right {
-    padding-top: 5px;
+    display: inline;
 }
 
 .activity-label {
@@ -459,27 +457,35 @@ a:hover {
     margin-bottom: 15px;
 }
 
-.activity-label-only {
-    width: 35px;
+.host-img {
+    width: 45px;
     height: auto;
-    text-align: center;
     margin-bottom: 15px;
-    margin-left: 75px;
 }
+
+.host-name {
+    display: block;
+    font-size: 14px;
+    color: #757575;
+}
+
+
 
 .activity-text {
     padding-top: 5px;
     padding-left: 10px;
 }
 
-.activity-text-only {
-    padding-left: 40px;
+.location-text {
+    padding-top: 5px;
+    padding-left: 10px;
+    text-overflow: ellipsis;
 }
 
 .activity-details{
-    padding-left: 10px;
-    padding-right: 10px;
-    align-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 14px;
 }
 
 .activity-badges {
@@ -775,4 +781,8 @@ a:hover {
     position: fixed;
     top: 65px;
     right: 10px;
+}
+
+.host-name-card {
+    text-decoration: none;
 }
