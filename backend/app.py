@@ -11,8 +11,8 @@ app.config['SECRET_KEY'] = 'top secret!'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['OAUTH_CREDENTIALS'] = {
     'facebook': {
-        'id': '<id>',
-        'secret': '<secret>'
+        'id': '',
+        'secret': ''
     }
 }
 
@@ -34,9 +34,13 @@ class login_info(UserMixin, db.Model):
 def load_user(id):
     return login_info.query.get(int(id))
 
-@app.route('/index')
+@app.route('/')
 def index():
-    return render_template('index.html',pagetitle='Ann Arbor',)
+    return render_template('index.html',pagetitle='Socialize',)
+
+@app.route('/home')
+def home():
+    return render_template('home.html',pagetitle='Ann Arbor',)
 
 @app.route('/messages')
 def messages():
