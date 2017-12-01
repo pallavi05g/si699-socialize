@@ -1,3 +1,0 @@
-DB: SQLite
-ORM: SQLAlchemy
-Flask
