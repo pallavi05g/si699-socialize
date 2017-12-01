@@ -1,18 +1,9 @@
-<html>
-    <head>
-        <title>Socialize</title>
-    </head>
-    <body>
-        <h1>Socialize Login</h1>
-        {% for message in get_flashed_messages() %}
-            <p><b>Error</b>: {{ message }}</p>
-        {% endfor %}
-        {% if current_user.is_authenticated %}
-            <h2>Hi, {{ current_user.username }}!</h2>
-            <p><a href="{{ url_for('logout') }}">Logout</a></p>
-        {% else %}
-            <h2>I don't know you!</h2>
-            <p><a href="{{ url_for('oauth_authorize', provider='facebook') }}">Login with Facebook</a></p>
-        {% endif %}
-    </body>
-</html>
+{% extends "base.html" %}
+{% block headerimg %}
+<img id="pin-location" src="../static/img/pin.svg">
+{% endblock %}
+{% block content %}
+{% endblock %}
+{% block home %}
+<a href="index"><img src="../static/img/home-green.svg"></a>
+{% endblock %}

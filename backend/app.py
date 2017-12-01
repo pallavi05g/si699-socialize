@@ -11,8 +11,8 @@ app.config['SECRET_KEY'] = 'top secret!'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['OAUTH_CREDENTIALS'] = {
     'facebook': {
-        'id': '<enter app id>',
-        'secret': '<enter secret key>'
+        'id': '<id>',
+        'secret': '<secret>'
     }
 }
 
@@ -20,23 +20,39 @@ db = SQLAlchemy(app)
 lm = LoginManager(app)
 
 lm.login_view = 'index'
-    
+
 class login_info(UserMixin, db.Model):
     __tablename__ = 'login_info'
     id = db.Column(db.Integer, primary_key=True)
     social_id = db.Column(db.String(64), nullable=False, unique=True)
     username = db.Column(db.String(64), nullable=False)
     email = db.Column(db.String(64), nullable=True)
-    
+
     profiles = relationship('Person', backref='Person.person_id',primaryjoin='login_info.id==Person.person_id', lazy='dynamic')
-    
+
 @lm.user_loader
 def load_user(id):
     return login_info.query.get(int(id))
 
-@app.route('/')
+@app.route('/index')
 def index():
-    return render_template('index.html')
+    return render_template('index.html',pagetitle='Ann Arbor',)
+
+@app.route('/messages')
+def messages():
+    return render_template('messages.html', pagetitle='Messages',)
+
+@app.route('/search')
+def search():
+    return render_template('search.html', pagetitle='Search',)
+
+@app.route('/profile')
+def profile():
+    return render_template('profile.html', pagetitle='My Profile',)
+
+@app.route('/settings')
+def settings():
+    return render_template('settings.html', pagetitle='Settings',)
 
 
 @app.route('/logout')
@@ -76,30 +92,30 @@ class Badge(db.Model):
     b_name = db.Column(db.String(64), nullable=False, unique=True)
     b_imgpath = db.Column(db.String(256), nullable=True)
     u_id = db.Column(db.String(256), ForeignKey(login_info.id),nullable=True)
-    
+
 class Activity(db.Model):
     __tablename__ = 'activity'
     act_id = db.Column(db.Integer, primary_key=True)
     act_name = db.Column(db.String(64), nullable=False, unique=True)
-    act_color = db.Column(db.String(64), nullable=False, unique=True)    
+    act_color = db.Column(db.String(64), nullable=False, unique=True)
     act_imgpath = db.Column(db.String(256), nullable=True)
 
 class Card(db.Model):
     __tablename__ = 'card'
     card_id = db.Column(db.Integer, primary_key=True)
     card_activity_type = db.Column(db.String(64), nullable=False, unique=True)
-    card_title = db.Column(db.String(64), nullable=False)  
-    card_location = db.Column(db.String(64), nullable=False)  
-    card_date_from = db.Column(db.String(64), nullable=False)  
-    card_time_from = db.Column(db.String(64), nullable=False)  
-    card_date_to = db.Column(db.String(64), nullable=False)  
-    card_time_to = db.Column(db.String(64), nullable=False)  
+    card_title = db.Column(db.String(64), nullable=False)
+    card_location = db.Column(db.String(64), nullable=False)
+    card_date_from = db.Column(db.String(64), nullable=False)
+    card_time_from = db.Column(db.String(64), nullable=False)
+    card_date_to = db.Column(db.String(64), nullable=False)
+    card_time_to = db.Column(db.String(64), nullable=False)
     card_people_count = db.Column(db.Integer, nullable=False)
-    card_valid_date = db.Column(db.String(64), nullable=False)  
-    card_valid_time = db.Column(db.String(64), nullable=False)  
+    card_valid_date = db.Column(db.String(64), nullable=False)
+    card_valid_time = db.Column(db.String(64), nullable=False)
     card_host_id = db.Column(db.String(64), nullable=False)
     card_imgpath = db.Column(db.String(256), nullable=True)
-    isHost = db.Column(db.Boolean, default=False, nullable=False)  
+    isHost = db.Column(db.Boolean, default=False, nullable=False)
     isFavorite = db.Column(db.Boolean, default=False, nullable=False)
     isImageSet = db.Column(db.Boolean, default=False, nullable=False)
 
@@ -110,13 +126,13 @@ class Person(db.Model):
     person_name = db.Column(db.String(64), nullable=False)
     person_dob = db.Column(db.String(64), nullable=False)
     person_location = db.Column(db.String(64), nullable=False)
-    person_imgpath = db.Column(db.String(256), nullable=True)  
-    person_badges = db.Column(db.String(256), nullable=True)  
+    person_imgpath = db.Column(db.String(256), nullable=True)
+    person_badges = db.Column(db.String(256), nullable=True)
     person_interests = db.Column(db.String(256),nullable=False)
     isDoBHidden = db.Column(db.Boolean, default=False, nullable=False)
-    
+
     login_info = relationship('login_info', foreign_keys='Person.person_id')
-                
+
 if __name__ == '__main__':
     db.create_all()
     app.run(debug=True)

@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Socialize</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+      <!-- Add icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+
+      <!-- Custom stylesheets-->
+        <link href="../static/css/template.css" rel="stylesheet" type="text/css">
+
+      <!--Bootstrap 4 Alpha from CDN-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <script src=../static/js/socialize.js></script>
+    </head>
+
+    <body>
+        <div class="header">
+            <img id="notif" src="../static/img/notification.svg">
+            <div class="page-title">
+                {% block headerimg %}
+                {% endblock %}
+                <p id="header-text">{{ pagetitle }}</p>
+            </div>
+        </div>
+        <div class="content">
+            {% block content %}
+            {%endblock %}
+        </div>
+        <div class="footer">
+          <ul>
+            <li>
+                {% block home %}
+                <a href="index"><img src="../static/img/home-lgrey.svg"></a>
+                {% endblock %}
+            </li>
+            <li>
+                {% block messages %}
+                <a href="messages"><img src="../static/img/messages-lgrey.svg"></a>
+                {% endblock %}
+            </li>
+            <li>
+                {% block search %}
+                <a href="search"><img src="../static/img/search-lgrey.svg"></a>
+                {% endblock %}
+            </li>
+            <li>
+                {% block profile %}
+                <a href="profile"><img src="../static/img/profile-lgrey.svg"></a>
+                {% endblock %}
+            </li>
+            <li>
+                {% block settings %}
+                <a href="settings"><img src="../static/img/settings-lgrey.svg"></a>
+                {% endblock %}
+            </li>
+          </ul>
+        </div>
+    </body>
+</html>
