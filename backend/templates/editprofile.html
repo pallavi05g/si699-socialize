@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block headerimg %}
+{% endblock %}
+{% block content %}
+    <div class="content">
+        <div class="top-nav">
+            <a href="profile"><button class="active-btn">My Profile</button></a>
+            <a href="interested"><button>Interested</button></a>
+            <a href="history"><button>History</button></a>
+        </div>
+        <form class="profile-form" action="#" method="post">
+            <!-- <div class="col-xs-12 centered">
+                <img class="profile-pic" src="img/person.svg">
+                <img class="pic-edit" src="img/edit.svg">
+            </div> -->
+            <div class="row">
+                <div class="offset-1 col-2 right">
+                    <img class="profile-label" src="../static/img/person.svg">
+                </div>
+                <div class="col-4">
+                    <a href="#" class="btn sec-btn" type="button">Upload photo</a>
+                </div>
+                <div class="col-4">
+                    <a href="#" class="btn sec-btn" type="button">Remove photo</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-1 col-2 right">
+                    <img class="profile-label" src="../static/img/name.svg">
+                </div>
+                <div class="col-8">
+                    <input class="profile-field" type="text" placeholder="Edit your name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-1 col-2 right">
+                    <img class="profile-label" src="../static/img/cake.svg">
+                </div>
+                <div class="col-8">
+                    <input class="profile-field" type="date" placeholder="Edit your birthday">
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-1 col-2 right">
+                    <img class="profile-label" src="../static/img/pin-dgrey.svg">
+                </div>
+                <div class="col-8">
+                    <input class="profile-field" type="text" placeholder="Edit your location">
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-1 col-2 right">
+                    <img class="profile-label" src="../static/img/interests.svg">
+                </div>
+                <div class="col-8">
+                    <input class="profile-field" type="text" placeholder="Add new interests">
+                </div>
+                <div class="offset-3 col-9">
+                    <p class="p-interests food">Food</p>
+                    <p class="p-interests trekking">Trekking</p>
+                    <p class="p-interests adv">Adventure</p>
+                </div>
+            </div>
+            <div class="row">
+                <a href="profile" class="btn submit-btn" type="button">Save</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+{% block editprofile %}
+<a href="editprofile"><img src="../static/../static/img/profile-green.svg"></a>
+{% endblock %}

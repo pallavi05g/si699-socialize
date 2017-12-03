@@ -36,11 +36,15 @@ def load_user(id):
 
 @app.route('/')
 def index():
-    return render_template('index.html',pagetitle='Socialize',)
+    return render_template('index.html',pagetitle='Socialaza',)
 
 @app.route('/home')
 def home():
     return render_template('home.html',pagetitle='Ann Arbor',)
+
+@app.route('/activitydetail')
+def activitydetail():
+    return render_template('activitydetail.html', pagetitle='Activity Detail',)
 
 @app.route('/messages')
 def messages():
@@ -50,9 +54,25 @@ def messages():
 def search():
     return render_template('search.html', pagetitle='Search',)
 
+@app.route('/notifications')
+def notifications():
+    return render_template('notifications.html',pagetitle='Notifications',)
+
+@app.route('/editprofile')
+def editprofile():
+    return render_template('editprofile.html', pagetitle='Edit Profile',)
+
 @app.route('/profile')
 def profile():
     return render_template('profile.html', pagetitle='My Profile',)
+
+@app.route('/interested')
+def interested():
+    return render_template('interested.html', pagetitle='Interested',)
+
+@app.route('/history')
+def history():
+    return render_template('history.html', pagetitle='History',)
 
 @app.route('/settings')
 def settings():
@@ -61,6 +81,10 @@ def settings():
 @app.route('/create')
 def create():
     return render_template('create.html', pagetitle='Create Activity',)
+
+@app.route('/createpreview')
+def createpreview():
+    return render_template('createpreview.html', pagetitle='Activity Preview',)
 
 @app.route('/logout')
 def logout():
