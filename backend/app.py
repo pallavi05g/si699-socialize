@@ -58,6 +58,9 @@ def profile():
 def settings():
     return render_template('settings.html', pagetitle='Settings',)
 
+@app.route('/create')
+def create():
+    return render_template('create.html', pagetitle='Create Activity',)
 
 @app.route('/logout')
 def logout():
