@@ -71,6 +71,27 @@
     font-size: 18px;
 }
 
+.login_page {
+    margin-bottom: 10%;
+    max-height: 100%;
+    overflow: auto;
+    padding-bottom: 10%;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.white {
+    margin-top: 20px;
+    color: white;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    margin-top: 150px;
+}
+
 .activity-form, .profile-form {
     margin-top: 45px;
     font-size: 16px;
@@ -163,20 +184,14 @@ button:focus {
 
 .fb-btn {
     background-color: #3b5998;
-    width: 80%;
+    width: 100%;
+    max-width: 300px;
+    min-height: 35px;
     font-size: 20px;
-    margin-top: 10%;
-    margin-bottom: 10%;
+    font-family: "Lato", sans-serif;
     font-weight: 300;
-}
-
-.google-btn {
-    background-color: #d62d20;
-    width: 80%;
-    font-size: 20px;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    font-weight: 300;
+    white-space: normal;
+    margin-bottom: 20px;
 }
 
 .fa-facebook-official, .fa-google {
@@ -545,6 +560,15 @@ a:hover {
     padding-bottom: 10px;
     font-family: "Lato", sans-serif;
     font-size:16px ;
+}
+
+.logout p > a {
+    color: red;
+    /*text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: "Lato", sans-serif;
+    font-size:16px ;*/
 }
 
 .notif-container {

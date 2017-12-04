@@ -95,7 +95,7 @@ def logout():
 @app.route('/authorize/<provider>')
 def oauth_authorize(provider):
     if not current_user.is_anonymous:
-        return redirect(url_for('index'))
+        return redirect(url_for('home'))
     oauth = OAuthSignIn.get_provider(provider)
     return oauth.authorize()
 
@@ -103,7 +103,7 @@ def oauth_authorize(provider):
 @app.route('/callback/<provider>')
 def oauth_callback(provider):
     if not current_user.is_anonymous:
-        return redirect(url_for('index'))
+        return redirect(url_for('home'))
     oauth = OAuthSignIn.get_provider(provider)
     social_id, username, email = oauth.callback()
     if social_id is None:
@@ -115,7 +115,7 @@ def oauth_callback(provider):
         db.session.add(user)
         db.session.commit()
     login_user(user, True)
-    return redirect(url_for('index'))
+    return redirect(url_for('home'))
 
 class Badge(db.Model):
     __tablename__ = 'badge'

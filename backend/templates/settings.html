@@ -12,9 +12,11 @@
             <img src="../static/img/padlock.svg">
             <p>Privacy Policy</p>
         </div>
-        <div class="logout">
-             <p>Log Out</p>
-        </div>
+        <a href="{{ url_for('logout') }}">
+            <div class="logout">
+                <p>Logout</p>
+            </div>
+        </a>
     </div>
 {% endblock %}
 {% block settings %}

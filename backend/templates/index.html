@@ -3,27 +3,30 @@
 {% endblock %}
 
 {% block content %}
-<div class="content full-bg" style="background-image: url(../static/img/socialize-cover.jpg); background-size: cover; width: auto; height: 100%;">
+<div class="login_page" style="color:white; background-image: url(../static/img/socialize-cover.jpg); background-size: cover; width: auto; height: 100%;">
     <div class="row">
         <div class="col-6 offset-3 centered">
-            <br><br>
-            <h3>Socialize - Login and Meet new folk around you</h3>
-            <h4>Discover. Explore. Experience.</h4>
+            <img class="logo" src="../static/img/heart-white.svg">
+            <h3 class="white">Login and Meet new folk around you</h3>
+            <h4 class="white">Discover. Explore. Experience.</h4>
         </div>
     </div>
     <div class="row">
-        <div class="col-3 offset-4 right">
+        <div class="col-6 offset-3 centered">
         {% for message in get_flashed_messages() %}
-            <p><b>Error</b>: {{ message }}</p>
+            <p class="white"><b>Error</b>: {{ message }}</p>
         {% endfor %}
         {% if current_user.is_authenticated %}
-            <h6>Hi, {{ current_user.username }}!</h6>
+            <h6 class="white">Hi, {{ current_user.username }}!</h6>
             <p><a href="{{ url_for('logout') }}">Logout</a></p>
         {% else %}
             <br><br>
-            <h6>You need to login to explore the awesomeness hidden in our app! Duh, login now!</h6>
-            <p><a href="{{ url_for('oauth_authorize', provider='facebook') }}"><button class="btn fb-btn"><i class="fa fa-facebook-official"></i>Sign in with Facebook</button></a>
-            </p>
+            <p class="white">You need to login to explore the awesomeness hidden in our app! Duh, login now!</p>
+        </div>
+        <div class="col-10 offset-1 centered">
+            <a href="{{ url_for('oauth_authorize', provider='facebook') }}" class="btn fb-btn">
+                <i class="fa fa-facebook-official"></i>Sign in with Facebook
+            </a>
         </div>
     </div>
         {% endif %}
