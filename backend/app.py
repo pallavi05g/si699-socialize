@@ -5,6 +5,9 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user,\
 from oauth import OAuthSignIn
 from sqlalchemy import *
 from sqlalchemy.orm import relationship
+from flask_wtf import Form
+from wtforms import *
+from wtforms.validators import DataRequired
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'top secret!'
@@ -29,6 +32,15 @@ class login_info(UserMixin, db.Model):
     email = db.Column(db.String(64), nullable=True)
 
     profiles = relationship('Person', backref='Person.person_id',primaryjoin='login_info.id==Person.person_id', lazy='dynamic')
+
+class CreateForm(Form):
+    title = StringField('title', validators=[DataRequired()])
+    location = StringField('location', validators=[DataRequired()])
+    dfrom = StringField('date_from', validators[DataRequired()])
+    tfrom = DateTimeField('time_from', validators[DataRequired()], format='%m-%d-%Y')
+    dto = DateField('date_to', validators[DataRequired()], format='%m-%d-%Y')
+    tto = DateTimeField('time_to', validators[DataRequired()], format='%m-%d-%Y')
+
 
 @lm.user_loader
 def load_user(id):
@@ -78,9 +90,10 @@ def history():
 def settings():
     return render_template('settings.html', pagetitle='Settings',)
 
-@app.route('/create')
+@app.route('/create', methods=['GET','POST'])
 def create():
-    return render_template('create.html', pagetitle='Create Activity',)
+    form = CreateForm()
+    return render_template('create-test.html', pagetitle='Create Activity', form=form)
 
 @app.route('/createpreview')
 def createpreview():
