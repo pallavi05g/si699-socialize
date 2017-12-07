@@ -123,7 +123,7 @@ button:focus {
     -moz-appearance: none;
 }
 
-#date-from, #time-from  {
+.date-time-from  {
     height: 35px;
     width: 100%;
     margin-bottom: 10px;
@@ -131,7 +131,7 @@ button:focus {
     border-bottom: solid 2px #34BB66;
 }
 
-#date-to, #time-to, #time-validity, #date-validity {
+.date-time-to, .date-time-valid {
     height: 35px;
     width: 100%;
     margin-bottom: 20px;

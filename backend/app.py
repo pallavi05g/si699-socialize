@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, render_template, flash
+from flask import Flask, redirect, url_for, render_template, flash, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user,\
     current_user
@@ -6,7 +6,7 @@ from oauth import OAuthSignIn
 from sqlalchemy import *
 from sqlalchemy.orm import relationship
 from flask_wtf import Form
-from wtforms import *
+from wtforms import StringField,SelectField,DateField,DateTimeField
 from wtforms.validators import DataRequired
 
 app = Flask(__name__)
@@ -33,14 +33,17 @@ class login_info(UserMixin, db.Model):
 
     profiles = relationship('Person', backref='Person.person_id',primaryjoin='login_info.id==Person.person_id', lazy='dynamic')
 
-class CreateForm(Form):
-    title = StringField('title', validators=[DataRequired()])
-    location = StringField('location', validators=[DataRequired()])
-    dfrom = StringField('date_from', validators[DataRequired()])
-    tfrom = DateTimeField('time_from', validators[DataRequired()], format='%m-%d-%Y')
-    dto = DateField('date_to', validators[DataRequired()], format='%m-%d-%Y')
-    tto = DateTimeField('time_to', validators[DataRequired()], format='%m-%d-%Y')
-
+class CreateCard(Form):
+    activity_type = SelectField('activity_type', validators=[DataRequired()], choices=[('choose','Choose Activity Type'),('tour','Local Tours'),('adv','Adventure'),('food','Food'),('camping','Camping'),('trekking','Trekking'),('movies','Movies/Plays')], default=1)
+    title = StringField('title', validators=[DataRequired()], render_kw={"placeholder": "Add Title"})
+    location = StringField('location', validators=[DataRequired()], render_kw={"placeholder": "Add Location"})
+    date_from = DateField('date_from', validators=[DataRequired()], render_kw={"placeholder": "mm/dd/yyyy"})
+    time_from = DateTimeField('time_from', validators=[DataRequired()], format='%m-%d-%Y', render_kw={"placeholder": "hh/mm am/pm"})
+    date_to = DateField('date_to', validators=[DataRequired()], format='%m-%d-%Y', render_kw={"placeholder": "mm/dd/yyyy"})
+    time_to = DateTimeField('time_to', validators=[DataRequired()], format='%m-%d-%Y', render_kw={"placeholder": "hh/mm am/pm"})
+    people_count = StringField('people_count', validators=[DataRequired()], render_kw={"placeholder": "Enter Number of People"})
+    valid_date = DateField('valid_date', validators=[DataRequired()], render_kw={"placeholder": "mm/dd/yyyy"})
+    valid_time = DateTimeField('valid_time', validators=[DataRequired()], render_kw={"placeholder": "hh:mm am/pm"})
 
 @lm.user_loader
 def load_user(id):
@@ -92,12 +95,36 @@ def settings():
 
 @app.route('/create', methods=['GET','POST'])
 def create():
-    form = CreateForm()
+    # create = CreateForm()
+    form = CreateCard()
+    if form.validate_on_submit():
+        var1 = Card()
+        var1.card_id = 10
+        var1.card_activity_type = form.activity_type.data
+        var1.card_title = form.title.data
+        var1.card_location = form.location.data
+        var1.card_date_from = form.date_from.data
+        var1.card_time_from = form.time_from.data
+        var1.card_date_to = form.date_to.data
+        var1.card_time_to = form.time_to.data
+        var1.card_people_count = form.people_count.data
+        var1.card_valid_date = form.valid_date.data
+        var1.card_valid_time = form.valid_time.data
+        var1.card_host_id = 1
+        var1.card_imgpath = 'test'
+        var1.isHost = True
+        var1.isFavorite = False
+        var1.isImageSet = False
+        db.session.add(var1)
+        db.session.commit()
+        return redirect(url_for('createpreview'))
     return render_template('create-test.html', pagetitle='Create Activity', form=form)
 
 @app.route('/createpreview')
 def createpreview():
-    return render_template('createpreview.html', pagetitle='Activity Preview',)
+    # if request.method = 'POST':
+    # result = request.form
+    return render_template('createpreview-test.html', pagetitle='Activity Preview', result=result)
 
 @app.route('/logout')
 def logout():
@@ -162,6 +189,24 @@ class Card(db.Model):
     isHost = db.Column(db.Boolean, default=False, nullable=False)
     isFavorite = db.Column(db.Boolean, default=False, nullable=False)
     isImageSet = db.Column(db.Boolean, default=False, nullable=False)
+
+    def _init_(self, card_id, card_activity_type, card_title, card_location, card_date_from, card_time_from, card_date_to, card_time_to, card_people_count, card_valid_date, card_valid_time, card_host_id, card_imgpath, isHost, isFavorite, isImageSet ):
+        self.card_id = card_id
+        self.card_activity_type = card_activity_type
+        self.card_title = card_title
+        self.card_location = card_location
+        self.card_date_from = card_date_from
+        self.card_time_from = card_time_from
+        self.card_date_to = card_date_to
+        self.card_time_to = card_time_to
+        self.card_people_count = card_people_count
+        self.card_valid_date = card_valid_date
+        self.card_valid_time = card_valid_time
+        self.card_host_id = card_host_id
+        self.card_imgpath = card_imgpath
+        self.isHost = isHost
+        self.isFavorite = isFavorite
+        self.isImageSet = isImageSet
 
 class Person(db.Model):
     __tablename__ = 'person'
