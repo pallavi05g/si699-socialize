@@ -4,6 +4,25 @@
 {% endblock %}
 <div class="content">
     {% block content %}
+    <div class="home-top-nav">
+        <a href="#collapseExample" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample"><button class="active-btn" id="categoryName">Popular</button></a>
+    </div>
+    <div class="collapse" id="collapseExample">
+        <div class="container home-nav-container">
+            <a href="#"><button class="btn home-btn">Popular</button></a>
+            <a href=""><button class="btn home-btn">Near Me</button></a>
+            <a href="#"><button class="btn home-btn">Expiring</button></a>
+            <a href="#"><button class="btn home-btn">Local Tours</button></a>
+            <a href="#"><button class="btn home-btn">Adventure</button></a>
+            <a href="#"><button class="btn home-btn">Food</button></a>
+            <a href="#"><button class="btn home-btn">Treks</button></a>
+            <a href="#"><button class="btn home-btn">Camping</button></a>
+            <a href="#"><button class="btn home-btn">Movies</button></a>
+            <a href="#"><button class="btn home-btn">Sports</button></a>
+            <a href="#"><button class="btn home-btn">Suggested</button></a>
+            <a href="#"><button class="btn home-btn">All</button></a>
+        </div>
+    </div>
     <div class="row">
         {% for card in cardData %}
         <div class="col-12 col-md-6 col-lg-4">
