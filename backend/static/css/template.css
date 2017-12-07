@@ -80,6 +80,7 @@
     font-family: 'Lato', sans-serif;
     font-weight: 400;
     font-size: 18px;
+    background-color: #232428;
 }
 
 .white {
@@ -89,8 +90,10 @@
 
 .logo {
     height: 40px;
+    height: 200px;
     width: auto;
     margin-top: 150px;
+    margin-top: 100px;
 }
 
 .activity-form, .profile-form {
@@ -124,7 +127,7 @@ button:focus {
     -moz-appearance: none;
 }
 
-#date-from, #time-from  {
+.date-time-from  {
     height: 35px;
     width: 100%;
     margin-bottom: 10px;
@@ -132,7 +135,7 @@ button:focus {
     border-bottom: solid 2px #34BB66;
 }
 
-#date-to, #time-to, #time-validity, #date-validity {
+.date-time-to, .date-time-valid {
     height: 35px;
     width: 100%;
     margin-bottom: 20px;
@@ -635,7 +638,7 @@ a:hover {
     text-align:center;
 }
 
-.review img {    
+.review img {
     display: block;
     margin: 0 auto;
     width: 15%;

@@ -3,12 +3,12 @@
 {% endblock %}
 
 {% block content %}
-<div class="login_page" style="color:white; background-image: url(../static/img/socialize.jpg); background-size: cover; width: auto; height: 100%;">
+<div class="login_page">
     <div class="row">
         <div class="col-6 offset-3 centered">
-            <img class="logo" src="../static/img/heart-white.svg">
-            <h3 class="white">Login and Meet new folk around you</h3>
-            <h4 class="white">Discover. Explore. Experience.</h4>
+            <img class="logo" src="../static/img/logo-transparent.png">
+            <h3 class="white">Socialaza</h3>
+            <!-- <h4 class="white">Discover. Explore. Experience.</h4> -->
         </div>
     </div>
     <div class="row">
@@ -21,7 +21,7 @@
             <p><a href="{{ url_for('logout') }}">Logout</a></p>
         {% else %}
             <br><br>
-            <p class="white">You need to login to explore the awesomeness hidden in our app! Duh, login now!</p>
+            <!-- <p class="white">You need to login to explore the awesomeness hidden in our app! Duh, login now!</p> -->
         </div>
         <div class="col-10 offset-1 centered">
             <a href="{{ url_for('oauth_authorize', provider='facebook') }}" class="btn fb-btn">

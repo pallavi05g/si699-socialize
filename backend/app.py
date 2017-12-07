@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, render_template, flash
+from flask import Flask, redirect, url_for, render_template, flash, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user,\
     current_user
@@ -6,7 +6,7 @@ from oauth import OAuthSignIn
 from sqlalchemy import *
 from sqlalchemy.orm import relationship
 from flask_wtf import Form
-from wtforms import *
+from wtforms import StringField,SelectField,DateField,DateTimeField
 from wtforms.validators import DataRequired
 from random import randint
 
@@ -34,6 +34,17 @@ class login_info(UserMixin, db.Model):
 
     profiles = relationship('Person', backref='Person.person_id',primaryjoin='login_info.id==Person.person_id', lazy='dynamic')
 
+class CreateCard(Form):
+    activity_type = SelectField('activity_type', validators=[DataRequired()], choices=[('choose','Choose Activity Type'),('tour','Local Tours'),('adv','Adventure'),('food','Food'),('camping','Camping'),('trekking','Trekking'),('movies','Movies/Plays')], default=1)
+    title = StringField('title', validators=[DataRequired()], render_kw={"placeholder": "Add Title"})
+    location = StringField('location', validators=[DataRequired()], render_kw={"placeholder": "Add Location"})
+    date_from = DateField('date_from', validators=[DataRequired()], render_kw={"placeholder": "mm/dd/yyyy"})
+    time_from = DateTimeField('time_from', validators=[DataRequired()], format='%m-%d-%Y', render_kw={"placeholder": "hh/mm am/pm"})
+    date_to = DateField('date_to', validators=[DataRequired()], format='%m-%d-%Y', render_kw={"placeholder": "mm/dd/yyyy"})
+    time_to = DateTimeField('time_to', validators=[DataRequired()], format='%m-%d-%Y', render_kw={"placeholder": "hh/mm am/pm"})
+    people_count = StringField('people_count', validators=[DataRequired()], render_kw={"placeholder": "Enter Number of People"})
+    valid_date = DateField('valid_date', validators=[DataRequired()], render_kw={"placeholder": "mm/dd/yyyy"})
+    valid_time = DateTimeField('valid_time', validators=[DataRequired()], render_kw={"placeholder": "hh:mm am/pm"})
 class Badge(db.Model):
     __tablename__ = 'badge'
     b_id = db.Column(db.Integer, primary_key=True)
@@ -150,12 +161,38 @@ def settings():
 
 @app.route('/create', methods=['GET','POST'])
 def create():
+    # create = CreateForm()
+    form = CreateCard()
+    if form.validate_on_submit():
+        var1 = Card()
+        var1.card_id = 10
+        var1.card_activity_type = form.activity_type.data
+        var1.card_title = form.title.data
+        var1.card_location = form.location.data
+        var1.card_date_from = form.date_from.data
+        var1.card_time_from = form.time_from.data
+        var1.card_date_to = form.date_to.data
+        var1.card_time_to = form.time_to.data
+        var1.card_people_count = form.people_count.data
+        var1.card_valid_date = form.valid_date.data
+        var1.card_valid_time = form.valid_time.data
+        var1.card_host_id = 1
+        var1.card_imgpath = 'test'
+        var1.isHost = True
+        var1.isFavorite = False
+        var1.isImageSet = False
+        db.session.add(var1)
+        db.session.commit()
+        return redirect(url_for('createpreview'))
+    return render_template('create-test.html', pagetitle='Create Activity', form=form)
     #form = CreateForm()
     return render_template('create.html', pagetitle='Create Activity', form=form)
 
 @app.route('/createpreview')
 def createpreview():
-    return render_template('createpreview.html', pagetitle='Activity Preview',)
+    # if request.method = 'POST':
+    # result = request.form
+    return render_template('createpreview-test.html', pagetitle='Activity Preview', result=result)
 
 @app.route('/logout')
 def logout():
@@ -182,6 +219,10 @@ def generate_data():
     db.session.add(samplecard_3)
     db.session.commit()
 
+def add():
+    samplecard = Card(card_id=randint(0,100), card_activity_type='food',card_title='Lunch at Zingermann\'s',card_location='Zingermann\'s Delicatessen, Ann Arbor, MI', card_date_from='6 Dec, 2017', card_time_from='12 PM', card_date_to='6 Dec, 2017', card_time_to='1 PM', card_people_count = 2, card_valid_date='6 Dec, 2017',card_valid_time='10 AM', card_host_id='Ling Zhong',card_imgpath='x',isHost=False,isFavorite=False,isImageSet=False)
+    db.session.add(samplecard)
+    db.session.commit()
 
 @app.route('/callback/<provider>')
 def oauth_callback(provider):
@@ -202,4 +243,6 @@ def oauth_callback(provider):
 
 if __name__ == '__main__':
     db.create_all()
+    app.run(debug=True)
+    add()
     app.run(debug=True)
