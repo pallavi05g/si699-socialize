@@ -631,10 +631,49 @@ a:hover {
     width: 10%;
 }
 
+.review p {
+    text-align:center;
+}
+
+.review img {    
+    display: block;
+    margin: 0 auto;
+    width: 15%;
+}
+
+.give_badge {
+    font-size: 5vw;
+}
 
 
+.container_badges {
+    margin-top: 5%;
 
+}
 
+.badge-list  {
+    display: inline-block;
+    width: 20%
+}
+
+.badge-list img {
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+}
+
+.badge-list-selected {
+    display: inline-block;
+    width: 30%;
+}
+
+.badge-list-selected img {
+    width: 80%;
+}
+
+.badge-list p {
+    text-align: center;
+}
 
 
 
