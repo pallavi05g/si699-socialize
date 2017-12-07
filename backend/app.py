@@ -15,8 +15,8 @@ app.config['SECRET_KEY'] = 'top secret!'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['OAUTH_CREDENTIALS'] = {
     'facebook': {
-        'id': '',
-        'secret': ''
+        'id': '1874301032583415',
+        'secret': 'b9bcd6f1e730bb2f16462f224669b61e'
     }
 }
 
@@ -183,12 +183,13 @@ def create():
             var1.isImageSet = False
             db.session.add(var1)
             db.session.commit()
-            return redirect(url_for('createpreview'))
-    return render_template('create-test.html', pagetitle='Create Activity', form=form)
+            return redirect(url_for('activitydetail', id=1))
+    elif request.method == 'GET':
+        return render_template('create.html', pagetitle='Create Activity', form=form)
 
-@app.route('/createpreview', methods=['GET','POST'])
-def createpreview():
-    return render_template('createpreview.html', pagetitle='Activity Preview')
+# @app.route('/createpreview', methods=['GET','POST'])
+# def createpreview():
+#     return render_template('createpreview.html', pagetitle='Activity Preview')
 
 @app.route('/logout')
 def logout():
@@ -208,6 +209,12 @@ def generate_data():
     samplecard_1 = Card(card_activity_type='food',card_title='Lunch at Zingermann\'s',card_location='Zingermann\'s Delicatessen, 422 Detroit Street, Ann Arbor, MI 48104', card_date_from='6 Dec, 2017', card_time_from='12 PM', card_date_to='6 Dec, 2017', card_time_to='1 PM', card_people_count = 2, card_valid_date='6 Dec, 2017',card_valid_time='10 AM', card_host_id='Ling Zhong',card_imgpath='x',isHost=False,isFavorite=False,isImageSet=False)
     samplecard_2 = Card(card_activity_type='food',card_title='Lunch at AMA\'s',card_location='Ama Bistro Family Restaurant, 215 S State Street, Ann Arbor, MI 48104', card_date_from='7 Dec, 2017', card_time_from='12 PM', card_date_to='6 Dec, 2017', card_time_to='1 PM', card_people_count = 2, card_valid_date='6 Dec, 2017',card_valid_time='10 AM', card_host_id='Ling Zhong',card_imgpath='x',isHost=False,isFavorite=False,isImageSet=False)
     samplecard_3 = Card(card_activity_type='sports',card_title='Ice Skating during Winter break',card_location='Yost Ice Arena, 1116 S State Street, Ann Arbor, MI', card_date_from='14 Dec, 2017', card_time_from='1 PM', card_date_to='14 Dec, 2017', card_time_to='1 PM', card_people_count = 8, card_valid_date='11 Dec, 2017',card_valid_time='10 PM', card_host_id='Pallavi Gupta',card_imgpath='x',isHost=True,isFavorite=False,isImageSet=False)
+
+
+
+
+
+
     db.session.add(samplecard_1)
     db.session.add(samplecard_2)
     db.session.add(samplecard_3)

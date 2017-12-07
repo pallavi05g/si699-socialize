@@ -3,10 +3,10 @@
 {% endblock %}
 {% block content %}
     <div class="content">
-        <form class="activity-form" action=" {{ url_for('createpreview')}}" method="post" name="create">
+        <form class="activity-form" action="{{ url_for('activitydetail') }}" method="post" name="create">
             <div class="row">
                 <div class="offset-1 col-2 right">
-                    <img class="form-label" src="../static/img/activity.svg">
+                    <img class="form-label" src="{{url_for('static', filename='img/activity.svg')}}">
                 </div>
                 <div class="col-8">
                     {{ form.activity_type(class_="form-field") }}
@@ -14,7 +14,7 @@
             </div>
             <div class="row">
                 <div class="offset-1 col-2 right">
-                    <img class="form-label" src="../static/img/title.svg">
+                    <img class="form-label" src="{{url_for('static', filename='img/title.svg')}}">
                 </div>
                 <div class="col-8">
                     {{ form.title(class_="form-field") }}
@@ -22,7 +22,7 @@
             </div>
             <div class="row">
                 <div class="offset-1 col-2 right">
-                    <img class="form-label" src="../static/img/pin-dgrey.svg">
+                    <img class="form-label" src="{{url_for('static', filename='img/pin-dgrey.svg')}}">
                 </div>
                 <div class="col-8">
                     {{ form.location(class_="form-field") }}
@@ -30,7 +30,7 @@
             </div>
             <div class="row">
                 <div class="offset-1 col-2 right">
-                    <img id="time-label" class="form-label" src="../static/img/time.svg">
+                    <img class="form-label" src="{{url_for('static', filename='img/time.svg')}}">
                 </div>
                 <div class="col-5">
                     {{ form.date_from(class_="date-time-from") }}
@@ -49,7 +49,7 @@
             </div>
             <div class="row">
                 <div class="offset-1 col-2 right">
-                    <img class="form-label" src="../static/img/group.svg">
+                    <img class="form-label" src="{{url_for('static', filename='img/group.svg')}}">
                 </div>
                 <div class="col-8">
                     {{ form.people_count(class_="form-field") }}
@@ -57,7 +57,7 @@
             </div>
             <div class="row">
                 <div class="offset-1 col-2 right">
-                    <img class="form-label" src="../static/img/hour-glass.svg">
+                    <img class="form-label" src="{{url_for('static', filename='img/hour-glass.svg')}}">
                 </div>
                 <div class="col-5">
                     {{ form.valid_date(class_="date-time-valid") }}
