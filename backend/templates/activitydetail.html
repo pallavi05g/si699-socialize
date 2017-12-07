@@ -8,7 +8,7 @@
             <div class="default-card {{card.card_activity_type}}"></div>
             <div class="card-img-overlay">
                 <h4 class="card-heading">{{card.card_title}}</h4>
-                {% if card.isFavorite %}<img class="icon-top-right" src="{{url_for('static', filename='img/person.svg')}}heart-white.svg" alt="heart">{% endif %}
+                {% if card.isFavorite %}<img class="icon-top-right" src="{{url_for('static', filename='img/heart-white.svg')}}" alt="heart">{% endif %}
                 <ul class="card-overlay-details">
                     <li>
                         <img src="{{url_for('static', filename='img/profile.svg')}}" alt="profile">

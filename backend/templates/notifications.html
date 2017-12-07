@@ -5,19 +5,19 @@
     <div class="content">
     <div class="notif-container">
         <div class="person1">
-            <img src="../static/img/ling.png">
+            <img src="{{url_for('static', filename='img/ling.png')}}">
             <p class="notif-title">5K at The Arb Tomorrow Night</p>
             <p class="notif-time">5m</p>
             <p class="notif-host">Hosted by Ling Zhong</p>
         </div>
         <div class="person2">
-            <img src="../static/img/pallavi.png">
+            <img src="{{url_for('static', filename='img/pallavi.png')}}">
             <p class="notif-title">Ling Zhong is going with you for This ...</p>
             <p class="notif-time">2d</p>
             <p class="notif-host">Hosted by You</p>
         </div>
         <div class="person3">
-            <img src="../static/img/purva.png">
+            <img src="{{url_for('static', filename='img/purva.png')}}">
             <p class="notif-title">Lunch @ Zingermann’s</p>
             <p class="notif-time">3d</p>
             <p class="notif-host">Hosted by Purva Sane</p>
@@ -26,5 +26,5 @@
     </div>
 {% endblock %}
 {% block notifications%}
-<a href="notifications"><img src="../static/../static/img/profile-green.svg"></a>
+<a href="notifications"><img src="{{url_for('static', filename='img/profile-green.svg')}}"></a>
 {% endblock %}

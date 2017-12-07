@@ -45,6 +45,7 @@ class CreateCard(Form):
     people_count = StringField('people_count', validators=[DataRequired()], render_kw={"placeholder": "Enter Number of People"})
     valid_date = DateField('valid_date', validators=[DataRequired()], render_kw={"placeholder": "mm/dd/yyyy"})
     valid_time = DateTimeField('valid_time', validators=[DataRequired()], render_kw={"placeholder": "hh:mm am/pm"})
+
 class Badge(db.Model):
     __tablename__ = 'badge'
     b_id = db.Column(db.Integer, primary_key=True)
@@ -119,7 +120,8 @@ def index():
 
 @app.route('/home')
 def home():
-    return render_template('home.html', pagetitle='Ann Arbor')
+    cardData = Card.query.all()
+    return render_template('home.html', pagetitle='Ann Arbor',cardData=cardData)
 
 @app.route('/activitydetail/<id>/')
 def activitydetail(id):
@@ -153,7 +155,12 @@ def interested():
 
 @app.route('/history')
 def history():
-    return render_template('history.html', pagetitle='History',)
+    cardData = Card.query.all()
+    return render_template('history.html', pagetitle='History', cardData=cardData)
+
+@app.route('/review')
+def review():
+    return render_template('review.html', pagetitle='Review',)
 
 @app.route('/settings')
 def settings():
@@ -208,6 +215,7 @@ def oauth_authorize(provider):
 def generate_data():
     samplecard_1 = Card(card_activity_type='food',card_title='Lunch at Zingermann\'s',card_location='Zingermann\'s Delicatessen, 422 Detroit Street, Ann Arbor, MI 48104', card_date_from='6 Dec, 2017', card_time_from='12 PM', card_date_to='6 Dec, 2017', card_time_to='1 PM', card_people_count = 2, card_valid_date='6 Dec, 2017',card_valid_time='10 AM', card_host_id='Ling Zhong',card_imgpath='x',isHost=False,isFavorite=False,isImageSet=False)
     samplecard_2 = Card(card_activity_type='food',card_title='Lunch at AMA\'s',card_location='Ama Bistro Family Restaurant, 215 S State Street, Ann Arbor, MI 48104', card_date_from='7 Dec, 2017', card_time_from='12 PM', card_date_to='6 Dec, 2017', card_time_to='1 PM', card_people_count = 2, card_valid_date='6 Dec, 2017',card_valid_time='10 AM', card_host_id='Ling Zhong',card_imgpath='x',isHost=False,isFavorite=False,isImageSet=False)
+<<<<<<< HEAD
     samplecard_3 = Card(card_activity_type='sports',card_title='Ice Skating during Winter break',card_location='Yost Ice Arena, 1116 S State Street, Ann Arbor, MI', card_date_from='14 Dec, 2017', card_time_from='1 PM', card_date_to='14 Dec, 2017', card_time_to='1 PM', card_people_count = 8, card_valid_date='11 Dec, 2017',card_valid_time='10 PM', card_host_id='Pallavi Gupta',card_imgpath='x',isHost=True,isFavorite=False,isImageSet=False)
 
 
@@ -215,6 +223,9 @@ def generate_data():
 
 
 
+=======
+    samplecard_3 = Card(card_activity_type='sports',card_title='Ice Skating during Winter break',card_location='Yost Ice Arena, 1116 S State Street, Ann Arbor, MI', card_date_from='14 Dec, 2017', card_time_from='1 PM', card_date_to='14 Dec, 2017', card_time_to='1 PM', card_people_count = 8, card_valid_date='11 Dec, 2017',card_valid_time='10 PM', card_host_id='Pallavi Gupta',card_imgpath='x',isHost=True,isFavorite=True,isImageSet=False)
+>>>>>>> 5b5b12c0ca8544c86caa5c89e642ceb624c9b695
     db.session.add(samplecard_1)
     db.session.add(samplecard_2)
     db.session.add(samplecard_3)

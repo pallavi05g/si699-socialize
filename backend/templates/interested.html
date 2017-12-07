@@ -17,14 +17,14 @@
                     </div>
                     <div class="card-img-overlay">
                         <h4 class="card-heading">{{card.card_title}}</h4>
-                        {% if card.isFavorite %}<img class="icon-top-right-interested" src="../static/img/heart-white.svg" alt="heart">{% endif %}
+                        {% if card.isFavorite %}<img class="icon-top-right-interested" src="{{url_for('static', filename='img/heart-white.svg')}}" alt="heart">{% endif %}
                         <ul class="card-overlay-details">
                             <li>
-                                <img src="../static/img/profile.svg" alt="profile">
+                                <img src="{{url_for('static', filename='img/profile.svg')}}" alt="profile">
                                 <p>Ling Zhong</p>
                             </li>
                             <li class="group">
-                                <img src="../static/img/group-white.svg" alt="profile">
+                                <img src="{{url_for('static', filename='img/group-white.svg')}}" alt="profile">
                                 <p>{{card.card_people_count}}</p>
                             </li>
                         </ul>
@@ -32,15 +32,15 @@
                     <div class="container">
                         <ul class="centered">
                             <li class="centered">
-                                <img src="../static/img/calendar.svg" alt="calendar">
+                                <img src="{{url_for('static', filename='img/calendar.svg')}}" alt="calendar">
                                 <p>{{card.card_date_from}}</p>
                             </li>
                             <li class="centered">
-                                <img src="../static/img/hour-glass.svg" alt="hourglass">
+                                <img src="{{url_for('static', filename='img/hour-glass.svg')}}" alt="hourglass">
                                 <p>{{card.card_valid_time}}</p>
                             </li>
                             <li class="centered">
-                                <img src="../static/img/time.svg" alt="time">
+                                <img src="{{url_for('static', filename='img/time.svg')}}" alt="time">
                                 <p>{{card.card_time_from}}</p>
                             </li>
                         </ul>
@@ -53,5 +53,5 @@
 </div>
 {% endblock %}
 {% block interested %}
-<a href="interested"><img src="../static/../static/img/profile-green.svg"></a>
+<a href="interested"><img src="{{url_for('static', filename='img/profile-green.svg')}}"></a>
 {% endblock %}

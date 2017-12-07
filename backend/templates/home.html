@@ -4,9 +4,51 @@
 {% endblock %}
 <div class="content">
     {% block content %}
-        <div class="overlay-btn">
-            <a href="create"><img src="{{url_for('static', filename='img/create-activity.svg')}}" alt="create activity"></a>
-        </div>   
+    <div class="row">
+        {% for card in cardData %}
+        <div class="col-12 col-md-6 col-lg-4">
+            <a href="{{url_for('activitydetail', id=card.card_id)}}">
+                <div class="card img-fluid">
+                    <div class="default-card {{card.card_activity_type}}">
+                    </div>
+                    <div class="card-img-overlay">
+                        <h4 class="card-heading">{{card.card_title}}</h4>
+                        <img class="icon-top-right" src="{{url_for('static', filename='img/heart-white.svg')}}" alt="heart">
+                        <ul class="card-overlay-details">
+                            <li>
+                                <img src="{{url_for('static', filename='img/profile.svg')}}" alt="profile">
+                                <p>Ling Zhong</p>
+                            </li>
+                            <li class="group">
+                                <img src="{{url_for('static', filename='img/group-white.svg')}}" alt="profile">
+                                <p>{{card.card_people_count}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <ul class="centered">
+                            <li class="centered">
+                                <img src="{{url_for('static', filename='img/calendar.svg')}}" alt="calendar">
+                                <p>{{card.card_date_from}}</p>
+                            </li>
+                            <li class="centered">
+                                <img src="{{url_for('static', filename='img/hour-glass.svg')}}" alt="hourglass">
+                                <p>{{card.card_valid_time}}</p>
+                            </li>
+                            <li class="centered">
+                                <img src="{{url_for('static', filename='img/time.svg')}}" alt="time">
+                                <p>{{card.card_time_from}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="overlay-btn">
+        <a href="create"><img src="{{url_for('static', filename='img/create-activity.svg')}}" alt="create activity"></a>
+    </div> 
     {%endblock %}
 </div>
 {% block home %}
