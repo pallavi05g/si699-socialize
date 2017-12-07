@@ -66,7 +66,7 @@ class Card(db.Model):
     isHost = db.Column(db.Boolean, default=False, nullable=False)
     isFavorite = db.Column(db.Boolean, default=False, nullable=False)
     isImageSet = db.Column(db.Boolean, default=False, nullable=False)
-    
+
     def __init__(self, card_id, card_activity_type, card_title, card_location, card_date_from, card_time_from, card_date_to, card_time_to, card_people_count, card_valid_date, card_valid_time, card_host_id, card_imgpath, isHost, isFavorite, isImageSet ):
         self.card_id = card_id
         self.card_activity_type = card_activity_type
@@ -84,7 +84,7 @@ class Card(db.Model):
         self.isHost = isHost
         self.isFavorite = isFavorite
         self.isImageSet = isImageSet
-    
+
 class Person(db.Model):
     __tablename__ = 'person'
     unique_id = db.Column(db.Integer, primary_key=True)
@@ -111,9 +111,10 @@ def index():
 def home():
     return render_template('home.html',pagetitle='Ann Arbor',)
 
-@app.route('/activitydetail')
-def activitydetail():
-    return render_template('activitydetail.html', pagetitle='Activity Detail',)
+@app.route('/activitydetail/<id>/')
+def activitydetail(id):
+    card = Card.query.get_or_404(id)
+    return render_template('activitydetail.html', pagetitle='Activity Detail', card=card)
 
 @app.route('/messages')
 def messages():
@@ -137,7 +138,8 @@ def profile():
 
 @app.route('/interested')
 def interested():
-    return render_template('interested.html', pagetitle='Interested',)
+    cardData = Card.query.all()
+    return render_template('interested.html', pagetitle='Interested', cardData=cardData)
 
 @app.route('/history')
 def history():
@@ -167,14 +169,13 @@ def oauth_authorize(provider):
     if not current_user.is_anonymous:
         return redirect(url_for('home'))
     oauth = OAuthSignIn.get_provider(provider)
-    return oauth.authorize()    
-    
+    return oauth.authorize()
+
 def add():
     samplecard = Card(card_id=randint(0,100), card_activity_type='food',card_title='Lunch at Zingermann\'s',card_location='Zingermann\'s Delicatessen, Ann Arbor, MI', card_date_from='6 Dec, 2017', card_time_from='12 PM', card_date_to='6 Dec, 2017', card_time_to='1 PM', card_people_count = 2, card_valid_date='6 Dec, 2017',card_valid_time='10 AM', card_host_id='Ling Zhong',card_imgpath='x',isHost=False,isFavorite=False,isImageSet=False)
     db.session.add(samplecard)
     db.session.commit()
-    
-add()
+
 
 @app.route('/callback/<provider>')
 def oauth_callback(provider):
@@ -195,7 +196,8 @@ def oauth_callback(provider):
 
 if __name__ == '__main__':
     db.create_all()
+    add()
     app.run(debug=True)
-    
-    
-    
+
+
+

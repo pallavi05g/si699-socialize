@@ -2,129 +2,55 @@
 {% block headerimg %}
 {% endblock %}
 {% block content %}
-    <div class="content">
-        <div class="top-nav">
-            <a href="profile"><button>My Profile</button></a>
-            <a href="interested"><button class="active-btn">Interested</button></a>
-            <a href="history"><button>History</button></a>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-4">
-            <a href="activitydetail">
-              <div class="card img-fluid">
-                <div class="default-card food">
-                </div>
-                <div class="card-img-overlay">
-                    <h4 class="card-heading">Lunch @ Zingermann's</h4>
-                    <img class="icon-top-right-interested" src="../static/img/heart-white.svg" alt="heart">
-                    <ul class="card-overlay-details">
-                    <li>
-                    <img src="../static/img/profile.svg" alt="profile">
-                    <p>Ling Zhong</p>
-                    </li>
-                    <li class="group">
-                    <img src="../static/img/group-white.svg" alt="profile">
-                    <p>2</p>
-                    </li>
-                    </ul>
-                </div>
-                <div class="container">
-                    <ul class="centered">
-                        <li class="centered">
-                            <img src="../static/img/calendar.svg" alt="calendar">
-                            <p>3 Nov, 2017</p>
-                        </li>
-                        <li class="centered">
-                            <img src="../static/img/hour-glass.svg" alt="hourglass">
-                            <p>8 hrs</p>
-                        </li>
-                        <li class="centered">
-                            <img src="../static/img/time.svg" alt="time">
-                            <p>12 PM</p>
-                        </li>
-                    </ul>
-                  </div>
-              </div>
-            </a>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-            <a href="activitydetail">
-              <div class="card img-fluid">
-                <div class="default-card adv">
-                </div>
-                <div class="card-img-overlay">
-                    <h4 class="card-heading">Lunch @ Zingermann's</h4>
-                    <img class="icon-top-right-interested" src="../static/img/heart-white.svg" alt="heart">
-                    <ul class="card-overlay-details">
-                    <li>
-                    <img src="../static/img/profile.svg" alt="profile">
-                    <p>Ling Zhong</p>
-                    </li>
-                    <li class="group">
-                    <img src="../static/img/group-white.svg" alt="profile">
-                    <p>2</p>
-                    </li>
-                    </ul>
-                </div>
-                <div class="container">
-                    <ul class="centered">
-                        <li class="centered">
-                            <img src="../static/img/calendar.svg" alt="calendar">
-                            <p>3 Nov, 2017</p>
-                        </li>
-                        <li class="centered">
-                            <img src="../static/img/hour-glass.svg" alt="hourglass">
-                            <p>8 hrs</p>
-                        </li>
-                        <li class="centered">
-                            <img src="../static/img/time.svg" alt="time">
-                            <p>12 PM</p>
-                        </li>
-                    </ul>
-                  </div>
-              </div>
-            </a>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-            <a href="activitydetail">
-              <div class="card img-fluid">
-                <div class="default-card trekking">
-                </div>
-                <div class="card-img-overlay">
-                    <h4 class="card-heading">Lunch @ Zingermann's</h4>
-                    <img class="icon-top-right-interested" src="../static/img/heart-white.svg" alt="heart">
-                    <ul class="card-overlay-details">
-                    <li>
-                    <img src="../static/img/profile.svg" alt="profile">
-                    <p>Ling Zhong</p>
-                    </li>
-                    <li class="group">
-                    <img src="../static/img/group-white.svg" alt="profile">
-                    <p>2</p>
-                    </li>
-                    </ul>
-                </div>
-                <div class="container">
-                    <ul class="centered">
-                        <li class="centered">
-                            <img src="../static/img/calendar.svg" alt="calendar">
-                            <p>3 Nov, 2017</p>
-                        </li>
-                        <li class="centered">
-                            <img src="../static/img/hour-glass.svg" alt="hourglass">
-                            <p>8 hrs</p>
-                        </li>
-                        <li class="centered">
-                            <img src="../static/img/time.svg" alt="time">
-                            <p>12 PM</p>
-                        </li>
-                    </ul>
-                  </div>
-              </div>
-            </a>
-        </div>
-        </div>
+<div class="content">
+    <div class="top-nav">
+        <a href="profile"><button>My Profile</button></a>
+        <a href="interested"><button class="active-btn">Interested</button></a>
+        <a href="history"><button>History</button></a>
     </div>
+    <div class="row">
+        {% for card in cardData %}
+        <div class="col-12 col-md-6 col-lg-4">
+            <a href="{{url_for('activitydetail', id=card.card_id)}}">
+                <div class="card img-fluid">
+                    <div class="default-card {{card.card_activity_type}}">
+                    </div>
+                    <div class="card-img-overlay">
+                        <h4 class="card-heading">{{card.card_title}}</h4>
+                        {% if card.isFavorite %}<img class="icon-top-right-interested" src="../static/img/heart-white.svg" alt="heart">{% endif %}
+                        <ul class="card-overlay-details">
+                            <li>
+                                <img src="../static/img/profile.svg" alt="profile">
+                                <p>Ling Zhong</p>
+                            </li>
+                            <li class="group">
+                                <img src="../static/img/group-white.svg" alt="profile">
+                                <p>{{card.card_people_count}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <ul class="centered">
+                            <li class="centered">
+                                <img src="../static/img/calendar.svg" alt="calendar">
+                                <p>{{card.card_date_from}}</p>
+                            </li>
+                            <li class="centered">
+                                <img src="../static/img/hour-glass.svg" alt="hourglass">
+                                <p>{{card.card_valid_time}}</p>
+                            </li>
+                            <li class="centered">
+                                <img src="../static/img/time.svg" alt="time">
+                                <p>{{card.card_time_from}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
 {% block interested %}
 <a href="interested"><img src="../static/../static/img/profile-green.svg"></a>
