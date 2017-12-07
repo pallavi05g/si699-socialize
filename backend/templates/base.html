@@ -39,27 +39,27 @@
           <ul>
             <li>
                 {% block home %}
-                <a href="home"><img src="{{url_for('static', filename='img/home-lgrey.svg')}}"></a>
+                <a href="{{url_for('home')}}"><img src="{{url_for('static', filename='img/home-lgrey.svg')}}"></a>
                 {% endblock %}
             </li>
             <li>
                 {% block messages %}
-                <a href="messages"><img src="{{url_for('static', filename='img/messages-lgrey.svg')}}"></a>
+                <a href="{{url_for('messages')}}"><img src="{{url_for('static', filename='img/messages-lgrey.svg')}}"></a>
                 {% endblock %}
             </li>
             <li>
                 {% block search %}
-                <a href="search"><img src="{{url_for('static', filename='img/search-lgrey.svg')}}"></a>
+                <a href="{{url_for('search')}}"><img src="{{url_for('static', filename='img/search-lgrey.svg')}}"></a>
                 {% endblock %}
             </li>
             <li>
                 {% block profile %}
-                <a href="profile"><img src="{{url_for('static', filename='img/profile-lgrey.svg')}}"></a>
+                <a href="{{url_for('profile')}}"><img src="{{url_for('static', filename='img/profile-lgrey.svg')}}"></a>
                 {% endblock %}
             </li>
             <li>
                 {% block settings %}
-                <a href="settings"><img src="{{url_for('static', filename='img/settings-lgrey.svg')}}"></a>
+                <a href="{{url_for('settings')}}"><img src="{{url_for('static', filename='img/settings-lgrey.svg')}}"></a>
                 {% endblock %}
             </li>
           </ul>

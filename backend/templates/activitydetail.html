@@ -8,14 +8,14 @@
             <div class="default-card {{card.card_activity_type}}"></div>
             <div class="card-img-overlay">
                 <h4 class="card-heading">{{card.card_title}}</h4>
-                {% if card.isFavorite %}<img class="icon-top-right" src="../static/img/heart-white.svg" alt="heart">{% endif %}
+                {% if card.isFavorite %}<img class="icon-top-right" src="{{url_for('static', filename='img/person.svg')}}heart-white.svg" alt="heart">{% endif %}
                 <ul class="card-overlay-details">
                     <li>
-                        <img src=../static/img/profile.svg alt="profile">
+                        <img src="{{url_for('static', filename='img/profile.svg')}}" alt="profile">
                         <p class="host-name-card">Ling Zhong</p>
                     </li>
                     <li class="group">
-                        <img src=../static/img/group-white.svg alt="profile">
+                        <img src="{{url_for('static', filename='img/group-white.svg')}}" alt="profile">
                         <p>{{card.card_people_count}}</p>
                     </li>
                 </ul>
@@ -26,24 +26,24 @@
                 <p class="p-interests {{card.card_activity_type}}">{{card.card_activity_type|title}}</p>
             </div>
             <div class="offset-4 col-5 right">
-                <img class="activity-label-right" src="../static/img/hour-glass.svg">
+                <img class="activity-label-right" src="{{url_for('static', filename='img/hour-glass.svg')}}">
                 <p class="activity-text-right">{{card.card_valid_time}}</p>
             </div>
         </div>
         <div class="row activity-details">
             <div class="col-2 centered">
-                <img class="activity-label" src="../static/img/pin-dgrey.svg">
+                <img class="activity-label" src="{{url_for('static', filename='img/pin-dgrey.svg')}}">
             </div>
             <div class="col-7">
                 <p class="location-text">{{card.card_location}}</p>
             </div>
             <div class="offset-1 col-2">
-                <img class="activity-label" src="../static/img/map.svg">
+                <img class="activity-label" src="{{url_for('static', filename='img/map.svg')}}">
             </div>
         </div>
         <div class="row activity-details">
             <div class="col-2 centered">
-                <img class="activity-label" src="../static/img/time.svg">
+                <img class="activity-label" src="{{url_for('static', filename='img/time.svg')}}">
             </div>
             <div class="col-5">
                 <p class="activity-text">{{card.card_date_from}}</p>
@@ -62,34 +62,34 @@
         </div>
         <div class="row activity-details">
             <div class="col-2 centered">
-                <img class="host-img centered" src="../static/img/person.svg">
+                <img class="host-img centered" src="{{url_for('static', filename='img/person.svg')}}">
                 <p class="host-name">Ling Zhong</p>
             </div>
             <div class="col-10">
                 <div class="activity-badges">
-                    <img src="../static/img/badge-adventurous.svg">
+                    <img src="{{url_for('static', filename='img/badge-adventurous.svg')}}">
                     <p class="count">3</p>
                 </div>
                 <div class="activity-badges">
-                    <img src="../static/img/badge-cool.svg">
+                    <img src="{{url_for('static', filename='img/badge-cool.svg')}}">
                     <p class="count">8</p>
                 </div>
                 <div class="activity-badges">
-                    <img src="../static/img/badge-fun.svg">
+                    <img src="{{url_for('static', filename='img/badge-fun.svg')}}">
                     <p class="count">4</p>
                 </div>
             </div>
         </div>
         <div class="row activity-details">
             <div class="col-2 centered">
-                <img class="activity-label" src="../static/img/group.svg">
+                <img class="activity-label" src="{{url_for('static', filename='img/group.svg')}}">
             </div>
             <div class="col-10">
                 <div class="activity-badges">
-                    <img class="activity-label" src="../static/img/person.svg">
+                    <img class="activity-label" src="{{url_for('static', filename='img/person.svg')}}">
                 </div>
                 <div class="activity-badges">
-                    <img class="activity-label" src="../static/img/person.svg">
+                    <img class="activity-label" src="{{url_for('static', filename='img/person.svg')}}">
                 </div>
             </div>
         </div>
@@ -97,5 +97,5 @@
 </div>
 {% endblock %}
 {% block activitydetail%}
-<a href="activitydetail"><img src="../static/../static/img/profile-green.svg"></a>
+<a href="activitydetail"><img src="../static/{{url_for('static', filename='img/profile-green.svg')}}"></a>
 {% endblock %}
