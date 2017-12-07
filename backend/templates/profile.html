@@ -10,16 +10,16 @@
         </div>
         <div class="row">
             <div class="offset-4 col-4 centered">
-                <img class="profile-pic" src="../static/img/person.svg">
+                <img class="profile-pic" src="{{url_for('static', filename='img/person.svg')}}">
             </div>
             <div class="col-4 left">
-                <a href="editprofile"><img class="pic-edit" src="../static/img/pic-edit.svg"></a>
+                <a href="editprofile"><img class="pic-edit" src="{{url_for('static', filename='img/pic-edit.svg')}}"></a>
             </div>
         </div>
 
         <div class="row">
             <div class="col-3 right">
-                <img class="profile-label" src="../static/img/name.svg">
+                <img class="profile-label" src="{{url_for('static', filename='img/name.svg')}}">
             </div>
             <div class="col-9">
                 <p class="profile-text">Purva Sane</p>
@@ -27,18 +27,18 @@
         </div>
         <div class="row">
             <div class="col-3 right">
-                <img class="profile-label" src="../static/img/cake.svg">
+                <img class="profile-label" src="{{url_for('static', filename='img/cake.svg')}}">
             </div>
             <div class="col-7">
                 <p class="profile-text">August 12, 1992</p>
             </div>
             <div class="col-2">
-                <img class="profile-label" src="../static/img/hide.svg" style="width:25px">
+                <img class="profile-label" src="{{url_for('static', filename='img/hide.svg')}}" style="width:25px">
             </div>
         </div>
         <div class="row">
             <div class="col-3 right">
-                <img class="profile-label" src="../static/img/pin-dgrey.svg">
+                <img class="profile-label" src="{{url_for('static', filename='img/pin-dgrey.svg')}}">
             </div>
             <div class="col-9">
                 <p class="profile-text">Ann Arbor</p>
@@ -46,7 +46,7 @@
         </div>
         <div class="row">
             <div class="col-3 right">
-                <img class="profile-label" src="../static/img/interests.svg">
+                <img class="profile-label" src="{{url_for('static', filename='img/interests.svg')}}">
             </div>
             <div class="col-9">
                 <p class="profile-text">Interests</p>
@@ -62,7 +62,7 @@
         </div>
         <div class="row">
             <div class="col-3 right">
-                <img class="profile-label" src="../static/img/badge.svg">
+                <img class="profile-label" src="{{url_for('static', filename='img/badge.svg')}}">
             </div>
             <div class="col-9">
                 <p class="profile-text">Badges</p>
@@ -72,39 +72,39 @@
             <div class="offset-3 col-9">
                 <div class="badge-container justify">
                     <div class="col-auto badges">
-                        <img src="../static/img/badge-adventurous.svg">
+                        <img src="{{url_for('static', filename='img/badge-adventurous.svg')}}">
                         <p class="count">3</p>
                     </div>
                     <div class="col-auto badges">
-                        <img src="../static/img/badge-cool.svg">
+                        <img src="{{url_for('static', filename='img/badge-cool.svg')}}">
                         <p class="count">8</p>
                     </div>
                     <div class="col-auto badges">
-                        <img src="../static/img/badge-fun.svg">
+                        <img src="{{url_for('static', filename='img/badge-fun.svg')}}">
                         <p class="count">4</p>
                     </div>
                     <div class="col-auto badges">
-                        <img src="../static/img/badge-healthconscious.svg">
+                        <img src="{{url_for('static', filename='img/badge-healthconscious.svg')}}">
                         <p class="count">2</p>
                     </div>
                     <div class="col-auto badges">
-                        <img src="../static/img/badge-globetrotter.svg">
+                        <img src="{{url_for('static', filename='img/badge-globetrotter.svg')}}">
                         <p class="count">9</p>
                     </div>
                     <div class="col-auto badges">
-                        <img src="../static/img/badge-ecofriendly.svg">
+                        <img src="{{url_for('static', filename='img/badge-ecofriendly.svg')}}">
                         <p class="count">6</p>
                     </div>
                     <div class="col-auto badges">
-                        <img src="../static/img/badge-listener.svg">
+                        <img src="{{url_for('static', filename='img/badge-listener.svg')}}">
                         <p class="count">3</p>
                     </div>
                     <div class="col-auto badges">
-                        <img src="../static/img/badge-punctual.svg">
+                        <img src="{{url_for('static', filename='img/badge-punctual.svg')}}">
                         <p class="count">5</p>
                     </div>
                     <div class="col-auto badges">
-                        <img src="../static/img/badge-socialbutterfly.svg">
+                        <img src="{{url_for('static', filename='img/badge-socialbutterfly.svg')}}">
                         <p class="count">7</p>
                     </div>
                 </div>
@@ -113,5 +113,5 @@
     </div>
 {% endblock %}
 {% block profile %}
-<a href="profile"><img src="../static/../static/img/profile-green.svg"></a>
+<a href="profile"><img src="{{url_for('static', filename='img/profile-green.svg')}}"></a>
 {% endblock %}

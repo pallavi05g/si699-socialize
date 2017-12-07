@@ -15,7 +15,7 @@
             </div> -->
             <div class="row">
                 <div class="offset-1 col-2 right">
-                    <img class="profile-label" src="../static/img/person.svg">
+                    <img class="profile-label" src="{{url_for('static', filename='img/person.svg')}}">
                 </div>
                 <div class="col-4">
                     <a href="#" class="btn sec-btn" type="button">Upload photo</a>
@@ -26,7 +26,7 @@
             </div>
             <div class="row">
                 <div class="offset-1 col-2 right">
-                    <img class="profile-label" src="../static/img/name.svg">
+                    <img class="profile-label" src="{{url_for('static', filename='img/name.svg')}}">
                 </div>
                 <div class="col-8">
                     <input class="profile-field" type="text" placeholder="Edit your name">
@@ -34,7 +34,7 @@
             </div>
             <div class="row">
                 <div class="offset-1 col-2 right">
-                    <img class="profile-label" src="../static/img/cake.svg">
+                    <img class="profile-label" src="{{url_for('static', filename='img/cake.svg')}}">
                 </div>
                 <div class="col-8">
                     <input class="profile-field" type="date" placeholder="Edit your birthday">
@@ -42,7 +42,7 @@
             </div>
             <div class="row">
                 <div class="offset-1 col-2 right">
-                    <img class="profile-label" src="../static/img/pin-dgrey.svg">
+                    <img class="profile-label" src="{{url_for('static', filename='img/pin-dgrey.svg')}}">
                 </div>
                 <div class="col-8">
                     <input class="profile-field" type="text" placeholder="Edit your location">
@@ -50,7 +50,7 @@
             </div>
             <div class="row">
                 <div class="offset-1 col-2 right">
-                    <img class="profile-label" src="../static/img/interests.svg">
+                    <img class="profile-label" src="{{url_for('static', filename='img/interests.svg')}}">
                 </div>
                 <div class="col-8">
                     <input class="profile-field" type="text" placeholder="Add new interests">
@@ -68,5 +68,5 @@
     </div>
 {% endblock %}
 {% block editprofile %}
-<a href="editprofile"><img src="../static/../static/img/profile-green.svg"></a>
+<a href="editprofile"><img src="{{url_for('static', filename='img/profile-green.svg')}}"></a>
 {% endblock %}
