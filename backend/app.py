@@ -216,9 +216,25 @@ def generate_data():
     samplecard_1 = Card(card_activity_type='food',card_title='Lunch at Zingermann\'s',card_location='Zingermann\'s Delicatessen, 422 Detroit Street, Ann Arbor, MI 48104', card_date_from='6 Dec, 2017', card_time_from='12 PM', card_date_to='6 Dec, 2017', card_time_to='1 PM', card_people_count = 2, card_valid_date='6 Dec, 2017',card_valid_time='10 AM', card_host_id='Ling Zhong',card_imgpath='x',isHost=False,isFavorite=False,isImageSet=False)
     samplecard_2 = Card(card_activity_type='food',card_title='Lunch at AMA\'s',card_location='Ama Bistro Family Restaurant, 215 S State Street, Ann Arbor, MI 48104', card_date_from='7 Dec, 2017', card_time_from='12 PM', card_date_to='6 Dec, 2017', card_time_to='1 PM', card_people_count = 2, card_valid_date='6 Dec, 2017',card_valid_time='10 AM', card_host_id='Ling Zhong',card_imgpath='x',isHost=False,isFavorite=False,isImageSet=False)
     samplecard_3 = Card(card_activity_type='sports',card_title='Ice Skating during Winter break',card_location='Yost Ice Arena, 1116 S State Street, Ann Arbor, MI', card_date_from='14 Dec, 2017', card_time_from='1 PM', card_date_to='14 Dec, 2017', card_time_to='1 PM', card_people_count = 8, card_valid_date='11 Dec, 2017',card_valid_time='10 PM', card_host_id='Pallavi Gupta',card_imgpath='x',isHost=True,isFavorite=False,isImageSet=False)
+    
+    samplecard_4 = Card(card_activity_type='tour',card_title='UMMA Tour',card_location='University of Michigan Museum of Art, 525 S State St, Ann Arbor, MI 48109', card_date_from='11 Dec, 2017', card_time_from='2 PM', card_date_to='11 Dec, 2017', card_time_to='4 PM', card_people_count = 5, card_valid_date='9 Dec, 2017',card_valid_time='8 PM', card_host_id='Purva Sane',card_imgpath='x',isHost=True,isFavorite=False,isImageSet=False)
+    
+    samplecard_5 = Card(card_activity_type='adv',card_title='Skiing over Winter Break',card_location='Mount Brighton, 4141 Bauer Rd, Brighton, MI 48116', card_date_from='15 Dec, 2017', card_time_from='10 AM', card_date_to='18 Dec, 2017', card_time_to='11 PM', card_people_count = 7, card_valid_date='10 Dec, 2017',card_valid_time='3 AM', card_host_id='Purva Sane',card_imgpath='x',isHost=True,isFavorite=False,isImageSet=False)
+    
+    samplecard_5 = Card(card_activity_type='sports',card_title='Ice Skating during Winter break',card_location='Yost Ice Arena, 1116 S State Street, Ann Arbor, MI', card_date_from='14 Dec, 2017', card_time_from='1 PM', card_date_to='14 Dec, 2017', card_time_to='1 PM', card_people_count = 8, card_valid_date='11 Dec, 2017',card_valid_time='10 PM', card_host_id='Pallavi Gupta',card_imgpath='x',isHost=True,isFavorite=False,isImageSet=False)
+    
+    samplecard_6 = Card(card_activity_type='movie',card_title='Ferdinand Movie Outing',card_location='Quality 16, 3686 Jackson Road, Ann Arbor, MI 48103', card_date_from='15 Dec, 2017', card_time_from='8 PM', card_date_to='15 Dec, 2017', card_time_to='10 PM', card_people_count = 4, card_valid_date='12 Dec, 2017',card_valid_time='9 AM', card_host_id='Ling Zhong',card_imgpath='x',isHost=False,isFavorite=False,isImageSet=False)
+    
+    samplecard_7 = Card(card_activity_type='camping',card_title='Camping at Sleeping Bear Dunes',card_location='Sleeping Bear Dunes National Lakesho', card_date_from='19 Dec, 2017', card_time_from='6 AM', card_date_to='24 Dec, 2017', card_time_to='11 PM', card_people_count = 7, card_valid_date='12 Dec, 2017',card_valid_time='11 PM', card_host_id='Pallavi Gupta',card_imgpath='x',isHost=False,isFavorite=False,isImageSet=False)
+    
     db.session.add(samplecard_1)
     db.session.add(samplecard_2)
     db.session.add(samplecard_3)
+    db.session.add(samplecard_4)
+    db.session.add(samplecard_5)
+    db.session.add(samplecard_6)
+    db.session.add(samplecard_7)
+
     db.session.commit()
 
 @app.route('/callback/<provider>')
