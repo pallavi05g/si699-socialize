@@ -8,6 +8,7 @@ from sqlalchemy.orm import relationship
 from flask_wtf import Form
 from wtforms import *
 from wtforms.validators import DataRequired
+from random import randint
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'top secret!'
@@ -33,14 +34,70 @@ class login_info(UserMixin, db.Model):
 
     profiles = relationship('Person', backref='Person.person_id',primaryjoin='login_info.id==Person.person_id', lazy='dynamic')
 
-class CreateForm(Form):
-    title = StringField('title', validators=[DataRequired()])
-    location = StringField('location', validators=[DataRequired()])
-    dfrom = StringField('date_from', validators[DataRequired()])
-    tfrom = DateTimeField('time_from', validators[DataRequired()], format='%m-%d-%Y')
-    dto = DateField('date_to', validators[DataRequired()], format='%m-%d-%Y')
-    tto = DateTimeField('time_to', validators[DataRequired()], format='%m-%d-%Y')
+class Badge(db.Model):
+    __tablename__ = 'badge'
+    b_id = db.Column(db.Integer, primary_key=True)
+    b_name = db.Column(db.String(64), nullable=False, unique=True)
+    b_imgpath = db.Column(db.String(256), nullable=True)
+    u_id = db.Column(db.String(256), ForeignKey(login_info.id),nullable=True)
 
+class Activity(db.Model):
+    __tablename__ = 'activity'
+    act_id = db.Column(db.Integer, primary_key=True)
+    act_name = db.Column(db.String(64), nullable=False, unique=True)
+    act_color = db.Column(db.String(64), nullable=False, unique=True)
+    act_imgpath = db.Column(db.String(256), nullable=True)
+
+class Card(db.Model):
+    __tablename__ = 'card'
+    card_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    card_activity_type = db.Column(db.String(64), nullable=False)
+    card_title = db.Column(db.String(64), nullable=False)
+    card_location = db.Column(db.String(64), nullable=False)
+    card_date_from = db.Column(db.String(64), nullable=False)
+    card_time_from = db.Column(db.String(64), nullable=False)
+    card_date_to = db.Column(db.String(64), nullable=False)
+    card_time_to = db.Column(db.String(64), nullable=False)
+    card_people_count = db.Column(db.Integer, nullable=False)
+    card_valid_date = db.Column(db.String(64), nullable=False)
+    card_valid_time = db.Column(db.String(64), nullable=False)
+    card_host_id = db.Column(db.String(64), nullable=False)
+    card_imgpath = db.Column(db.String(256), nullable=True)
+    isHost = db.Column(db.Boolean, default=False, nullable=False)
+    isFavorite = db.Column(db.Boolean, default=False, nullable=False)
+    isImageSet = db.Column(db.Boolean, default=False, nullable=False)
+    
+    def __init__(self, card_id, card_activity_type, card_title, card_location, card_date_from, card_time_from, card_date_to, card_time_to, card_people_count, card_valid_date, card_valid_time, card_host_id, card_imgpath, isHost, isFavorite, isImageSet ):
+        self.card_id = card_id
+        self.card_activity_type = card_activity_type
+        self.card_title = card_title
+        self.card_location = card_location
+        self.card_date_from = card_date_from
+        self.card_time_from = card_time_from
+        self.card_date_to = card_date_to
+        self.card_time_to = card_time_to
+        self.card_people_count = card_people_count
+        self.card_valid_date = card_valid_date
+        self.card_valid_time = card_valid_time
+        self.card_host_id = card_host_id
+        self.card_imgpath = card_imgpath
+        self.isHost = isHost
+        self.isFavorite = isFavorite
+        self.isImageSet = isImageSet
+    
+class Person(db.Model):
+    __tablename__ = 'person'
+    unique_id = db.Column(db.Integer, primary_key=True)
+    person_id = db.Column(db.Integer, ForeignKey(login_info.id) ,unique=True)
+    person_name = db.Column(db.String(64), nullable=False)
+    person_dob = db.Column(db.String(64), nullable=False)
+    person_location = db.Column(db.String(64), nullable=False)
+    person_imgpath = db.Column(db.String(256), nullable=True)
+    person_badges = db.Column(db.String(256), nullable=True)
+    person_interests = db.Column(db.String(256),nullable=False)
+    isDoBHidden = db.Column(db.Boolean, default=False, nullable=False)
+
+    login_info = relationship('login_info', foreign_keys='Person.person_id')
 
 @lm.user_loader
 def load_user(id):
@@ -92,8 +149,8 @@ def settings():
 
 @app.route('/create', methods=['GET','POST'])
 def create():
-    form = CreateForm()
-    return render_template('create-test.html', pagetitle='Create Activity', form=form)
+    #form = CreateForm()
+    return render_template('create.html', pagetitle='Create Activity', form=form)
 
 @app.route('/createpreview')
 def createpreview():
@@ -110,8 +167,14 @@ def oauth_authorize(provider):
     if not current_user.is_anonymous:
         return redirect(url_for('home'))
     oauth = OAuthSignIn.get_provider(provider)
-    return oauth.authorize()
-
+    return oauth.authorize()    
+    
+def add():
+    samplecard = Card(card_id=randint(0,100), card_activity_type='food',card_title='Lunch at Zingermann\'s',card_location='Zingermann\'s Delicatessen, Ann Arbor, MI', card_date_from='6 Dec, 2017', card_time_from='12 PM', card_date_to='6 Dec, 2017', card_time_to='1 PM', card_people_count = 2, card_valid_date='6 Dec, 2017',card_valid_time='10 AM', card_host_id='Ling Zhong',card_imgpath='x',isHost=False,isFavorite=False,isImageSet=False)
+    db.session.add(samplecard)
+    db.session.commit()
+    
+add()
 
 @app.route('/callback/<provider>')
 def oauth_callback(provider):
@@ -130,53 +193,9 @@ def oauth_callback(provider):
     login_user(user, True)
     return redirect(url_for('home'))
 
-class Badge(db.Model):
-    __tablename__ = 'badge'
-    b_id = db.Column(db.Integer, primary_key=True)
-    b_name = db.Column(db.String(64), nullable=False, unique=True)
-    b_imgpath = db.Column(db.String(256), nullable=True)
-    u_id = db.Column(db.String(256), ForeignKey(login_info.id),nullable=True)
-
-class Activity(db.Model):
-    __tablename__ = 'activity'
-    act_id = db.Column(db.Integer, primary_key=True)
-    act_name = db.Column(db.String(64), nullable=False, unique=True)
-    act_color = db.Column(db.String(64), nullable=False, unique=True)
-    act_imgpath = db.Column(db.String(256), nullable=True)
-
-class Card(db.Model):
-    __tablename__ = 'card'
-    card_id = db.Column(db.Integer, primary_key=True)
-    card_activity_type = db.Column(db.String(64), nullable=False, unique=True)
-    card_title = db.Column(db.String(64), nullable=False)
-    card_location = db.Column(db.String(64), nullable=False)
-    card_date_from = db.Column(db.String(64), nullable=False)
-    card_time_from = db.Column(db.String(64), nullable=False)
-    card_date_to = db.Column(db.String(64), nullable=False)
-    card_time_to = db.Column(db.String(64), nullable=False)
-    card_people_count = db.Column(db.Integer, nullable=False)
-    card_valid_date = db.Column(db.String(64), nullable=False)
-    card_valid_time = db.Column(db.String(64), nullable=False)
-    card_host_id = db.Column(db.String(64), nullable=False)
-    card_imgpath = db.Column(db.String(256), nullable=True)
-    isHost = db.Column(db.Boolean, default=False, nullable=False)
-    isFavorite = db.Column(db.Boolean, default=False, nullable=False)
-    isImageSet = db.Column(db.Boolean, default=False, nullable=False)
-
-class Person(db.Model):
-    __tablename__ = 'person'
-    unique_id = db.Column(db.Integer, primary_key=True)
-    person_id = db.Column(db.Integer, ForeignKey(login_info.id) ,unique=True)
-    person_name = db.Column(db.String(64), nullable=False)
-    person_dob = db.Column(db.String(64), nullable=False)
-    person_location = db.Column(db.String(64), nullable=False)
-    person_imgpath = db.Column(db.String(256), nullable=True)
-    person_badges = db.Column(db.String(256), nullable=True)
-    person_interests = db.Column(db.String(256),nullable=False)
-    isDoBHidden = db.Column(db.Boolean, default=False, nullable=False)
-
-    login_info = relationship('login_info', foreign_keys='Person.person_id')
-
 if __name__ == '__main__':
     db.create_all()
     app.run(debug=True)
+    
+    
+    
