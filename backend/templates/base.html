@@ -24,7 +24,7 @@
     <body>
         {% block header %}
         <div class="header">
-            <img id="notif" src="{{url_for('static', filename='img/notification.svg')}}">
+            <a href="notifications"><img id="notif" src="{{url_for('static', filename='img/notification.svg')}}"></a>
             <div class="page-title">
                 {% block headerimg %}
                 {% endblock %}

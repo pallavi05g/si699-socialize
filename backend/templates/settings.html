@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 {% block headerimg %}
-<!-- <img id="pin-location" src="../static/img/pin.svg"> -->
 {% endblock %}
 {% block content %}
     <div class="settings-container">
         <div class="help">
-            <img src="../static/img/help.svg">
+            <img src="{{url_for('static', filename='img/help.svg')}}">
             <p>Help and Support</p>
         </div>
         <div class="privacy">
-            <img src="../static/img/padlock.svg">
+            <img src="{{url_for('static', filename='img/padlock.svg')}}">
             <p>Privacy Policy</p>
         </div>
         <a href="{{ url_for('logout') }}">
@@ -20,5 +19,5 @@
     </div>
 {% endblock %}
 {% block settings %}
-<a href="settings"><img src="../static/img/settings-green.svg"></a>
+<a href="settings"><img src="{{url_for('static', filename='img/settings-green.svg')}}"></a>
 {% endblock %}

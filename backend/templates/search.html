@@ -1,15 +1,13 @@
 {% extends "base.html" %}
 {% block headerimg %}
-<!-- <img id="pin-location" src="../static/img/pin.svg"> -->
 {% endblock %}
 {% block content %}
 <form class="search" action="#" method="post">
     <input class="searchbar" type="search" placeholder="Search for an activity">
-        <a href="#"><img id="search-back" src="../static/img/backarrow.svg"></a>   <!--on click should take back to prev page https://www.w3schools.com/jsref/met_his_back.asp-->
-        <a href="#"><img id="search-mic" src="../static/img/mic.svg"></a> <!-- on click should open microphone on phone-->
-    </input>
+        <a href="#"><img id="search-back" src="{{url_for('static', filename='img/backarrow.svg')}}"></a>   <!--on click should take back to prev page https://www.w3schools.com/jsref/met_his_back.asp-->
+        <a href="#"><img id="search-mic" src="{{url_for('static', filename='img/mic.svg')}}"></a> <!-- on click should open microphone on phone-->
 </form>
 {% endblock %}
 {% block search %}
-<a href="search"><img src="../static/img/search-green.svg"></a>
+<a href="search"><img src="{{url_for('static', filename='img/search-green.svg')}}"></a>
 {% endblock %}

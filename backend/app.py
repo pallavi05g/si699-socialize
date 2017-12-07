@@ -45,6 +45,7 @@ class CreateCard(Form):
     people_count = StringField('people_count', validators=[DataRequired()], render_kw={"placeholder": "Enter Number of People"})
     valid_date = DateField('valid_date', validators=[DataRequired()], render_kw={"placeholder": "mm/dd/yyyy"})
     valid_time = DateTimeField('valid_time', validators=[DataRequired()], render_kw={"placeholder": "hh:mm am/pm"})
+
 class Badge(db.Model):
     __tablename__ = 'badge'
     b_id = db.Column(db.Integer, primary_key=True)
@@ -153,7 +154,12 @@ def interested():
 
 @app.route('/history')
 def history():
-    return render_template('history.html', pagetitle='History',)
+    cardData = Card.query.all()
+    return render_template('history.html', pagetitle='History', cardData=cardData)
+
+@app.route('/review')
+def review():
+    return render_template('review.html', pagetitle='Review',)
 
 @app.route('/settings')
 def settings():

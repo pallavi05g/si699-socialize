@@ -1,120 +1,81 @@
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Review</title>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
-    <!-- Add icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
-
-    <!-- Custom stylesheets-->
-    <link href="../static/css/template.css" rel="stylesheet" type="text/css">
-
-    <!--Bootstrap 4 Alpha from CDN-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script src=socialize.js></script>
-
-</head>
-<body>
-    <div class="header">
-        <img id="notif" src="img/notification.svg">
-        <div class="page-title">
-          <p id="header-text">Review</p>
-        </div>
-    </div>
-    <div class="content">
-
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-4">
-                <a href="activity-detail.html">
-                    <div class="card img-fluid">
-                        <div class="default-card food"></div>
-                        <div class="card-img-overlay">
-                            <h4 class="card-heading">Lunch @ Zingermann's</h4>
-                            <img class="icon-top-right" src="img/heart-white.svg" alt="heart">
-                            <ul class="card-overlay-details">
-                                <li>
-                                    <img src=img/profile.svg alt="profile">
-                                    <p>Ling Zhong</p>
-                                </li>
-                                <li class="group">
-                                    <img src=img/group-white.svg alt="profile">
-                                    <p>2</p>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="container">
-                            <ul class="centered">
-                                <li class="centered">
-                                    <img src=img/calendar.svg alt="calendar">
-                                    <p>3 Nov, 2017</p>
-                                </li>
-                                <li class="centered">
-                                    <img src=img/hour-glass.svg alt="hourglass">
-                                    <p>8 hrs</p>
-                                </li>
-                                <li class="centered">
-                                    <img src=img/time.svg alt="time">
-                                    <p>12 PM</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </a>
+{% extends "base.html" %}
+{% block headerimg %}
+{% endblock %}
+{% block content %}
+<div class="content">
+    <div class="row">
+    <div class="col-12 col-md-6 col-lg-4">
+        <a href="{{url_for('activitydetail',id=1)}}">
+            <div class="card img-fluid">
+                <div class="default-card food"></div>
+                <div class="card-img-overlay">
+                    <h4 class="card-heading">Lunch @ Zingermann's</h4>
+                    <img class="icon-top-right" src="{{url_for('static', filename='img/heart-white.svg')}}" alt="heart">
+                    <ul class="card-overlay-details">
+                        <li>
+                            <img src="{{url_for('static', filename='img/profile.svg')}}" alt="profile">
+                            <p>Ling Zhong</p>
+                        </li>
+                        <li class="group">
+                            <img src="{{url_for('static', filename='img/group-white.svg')}}" alt="profile">
+                            <p>2</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="container">
+                    <ul class="centered">
+                        <li class="centered">
+                            <img src="{{url_for('static', filename='img/calendar.svg')}}" alt="calendar">
+                            <p>3 Nov, 2017</p>
+                        </li>
+                        <li class="centered">
+                            <img src="{{url_for('static', filename='img/hour-glass.svg')}}" alt="hourglass">
+                            <p>8 hrs</p>
+                        </li>
+                        <li class="centered">
+                            <img src="{{url_for('static', filename='img/time.svg')}}" alt="time">
+                            <p>12 PM</p>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </a>
+    </div>
+    </div>
+    <div class="row">
             <div class="col-12 col-md-6 col-lg-4 review">
             	<p class="give_badge">Give a badge?</p>
-            	<img src="../static/img/ling.png" alt="profile">
+            	<img src="{{url_for('static', filename='img/ling.png')}}" alt="profile">
             	<p class="review_username">Casey Lin</p>
             </div>
-            <div class="col-12 col-md-6 col-lg-4 container_badges">
-            <div class="badge-list-selected">
-                <img class="badge-list-selected-img" src="../static/img/badge-socialbutterfly.svg" alt="social">
-                <img class="checked" src="../static/img/checked.png" alt="checked">
-                <p class="badge_name_selected">Social Butterfly</p>
-            </div>
-            <div class="badge-list">
-                <img src="../static/img/badge-adventurous.svg" alt="adventurous">
-                <p class="badge_name">Adventur<br>-ous</p>
-            </div>
-            <div class="badge-list">
-                <img src="../static/img/badge-healthconscious.svg" alt="healthy">
-                <p class="badge_name">Health Conscious</p>
-            </div>
-            <div class="badge-list">
-                <img src="../static/img/badge-fun.svg" alt="fun">
-                <p class="badge_name">Fun</p>
-            </div>
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 container_badges">
+        <div class="badge-list-selected">
+            <img class="badge-list-selected-img" src="{{url_for('static', filename='img/badge-socialbutterfly.svg')}}" alt="social">
+            <img class="checked" src="{{url_for('static', filename='img/checked.png')}}" alt="checked">
+            <p class="badge_name_selected">Social Butterfly</p>
         </div>
-        <div class="row">
-            <a href="index.html" class="btn submit-btn" type="button">Submit</a>
+        <div class="badge-list">
+            <img src="{{url_for('static', filename='img/badge-adventurous.svg')}}" alt="adventurous">
+            <p class="badge_name">Adventur<br>-ous</p>
+        </div>
+        <div class="badge-list">
+            <img src="{{url_for('static', filename='img/badge-healthconscious.svg')}}" alt="healthy">
+            <p class="badge_name">Health Conscious</p>
+        </div>
+        <div class="badge-list">
+            <img src="{{url_for('static', filename='img/badge-fun.svg')}}" alt="fun">
+            <p class="badge_name">Fun</p>
+        </div>
         </div>
     </div>
-    <div class="footer">
-      <ul>
-        <li>
-          <a href="index.html"><img src="img/home-lgrey.svg"></a>
-        </li>
-        <li>
-          <a href="messages.html"><img src="img/messages-lgrey.svg"></a>
-        </li>
-        <li>
-          <a href="search.html"><img src="img/search-lgrey.svg"></a>
-        </li>
-        <li>
-          <a href="profile.html"><img src="img/profile-lgrey.svg"></a>
-        </li>
-        <li>
-          <a href="settings.html"><img src="img/settings-lgrey.svg"></a>
-        </li>
-      </ul>
+    <div class="row">
+            <a href="{{url_for('index')}}" class="btn submit-btn" type="button">Submit</a>
     </div>
-</body>
-</html>
+</div>
+{% endblock %}
+{% block review %}
+<a href="index"><img src="{{url_for('static', filename='img/profile-green.svg')}}"></a>
+{% endblock %}
+
