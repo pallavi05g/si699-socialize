@@ -162,36 +162,34 @@ def settings():
 @app.route('/create', methods=['GET','POST'])
 def create():
     # create = CreateForm()
-    form = CreateCard()
-    if form.validate_on_submit():
-        var1 = Card()
-        var1.card_id = 10
-        var1.card_activity_type = form.activity_type.data
-        var1.card_title = form.title.data
-        var1.card_location = form.location.data
-        var1.card_date_from = form.date_from.data
-        var1.card_time_from = form.time_from.data
-        var1.card_date_to = form.date_to.data
-        var1.card_time_to = form.time_to.data
-        var1.card_people_count = form.people_count.data
-        var1.card_valid_date = form.valid_date.data
-        var1.card_valid_time = form.valid_time.data
-        var1.card_host_id = 1
-        var1.card_imgpath = 'test'
-        var1.isHost = True
-        var1.isFavorite = False
-        var1.isImageSet = False
-        db.session.add(var1)
-        db.session.commit()
-        return redirect(url_for('createpreview'))
+    form = CreateCard(request.form)
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            var1 = Card()
+            var1.card_activity_type = form.activity_type.data
+            var1.card_title = form.title.data
+            var1.card_location = form.location.data
+            var1.card_date_from = form.date_from.data
+            var1.card_time_from = form.time_from.data
+            var1.card_date_to = form.date_to.data
+            var1.card_time_to = form.time_to.data
+            var1.card_people_count = form.people_count.data
+            var1.card_valid_date = form.valid_date.data
+            var1.card_valid_time = form.valid_time.data
+            var1.card_host_id = 1
+            var1.card_imgpath = 'test'
+            var1.isHost = True
+            var1.isFavorite = False
+            var1.isImageSet = False
+            db.session.add(var1)
+            db.session.commit()
+            return redirect(url_for('createpreview'))
     return render_template('create-test.html', pagetitle='Create Activity', form=form)
     #form = CreateForm()
     return render_template('create.html', pagetitle='Create Activity', form=form)
 
 @app.route('/createpreview')
 def createpreview():
-    # if request.method = 'POST':
-    # result = request.form
     return render_template('createpreview-test.html', pagetitle='Activity Preview', result=result)
 
 @app.route('/logout')
