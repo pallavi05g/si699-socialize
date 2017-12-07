@@ -185,12 +185,10 @@ def create():
             db.session.commit()
             return redirect(url_for('createpreview'))
     return render_template('create-test.html', pagetitle='Create Activity', form=form)
-    #form = CreateForm()
-    return render_template('create.html', pagetitle='Create Activity', form=form)
 
-@app.route('/createpreview')
+@app.route('/createpreview', methods=['GET','POST'])
 def createpreview():
-    return render_template('createpreview-test.html', pagetitle='Activity Preview', result=result)
+    return render_template('createpreview.html', pagetitle='Activity Preview')
 
 @app.route('/logout')
 def logout():
@@ -208,18 +206,11 @@ def oauth_authorize(provider):
 @app.route('/generate-data')
 def generate_data():
     samplecard_1 = Card(card_activity_type='food',card_title='Lunch at Zingermann\'s',card_location='Zingermann\'s Delicatessen, 422 Detroit Street, Ann Arbor, MI 48104', card_date_from='6 Dec, 2017', card_time_from='12 PM', card_date_to='6 Dec, 2017', card_time_to='1 PM', card_people_count = 2, card_valid_date='6 Dec, 2017',card_valid_time='10 AM', card_host_id='Ling Zhong',card_imgpath='x',isHost=False,isFavorite=False,isImageSet=False)
-
     samplecard_2 = Card(card_activity_type='food',card_title='Lunch at AMA\'s',card_location='Ama Bistro Family Restaurant, 215 S State Street, Ann Arbor, MI 48104', card_date_from='7 Dec, 2017', card_time_from='12 PM', card_date_to='6 Dec, 2017', card_time_to='1 PM', card_people_count = 2, card_valid_date='6 Dec, 2017',card_valid_time='10 AM', card_host_id='Ling Zhong',card_imgpath='x',isHost=False,isFavorite=False,isImageSet=False)
-
     samplecard_3 = Card(card_activity_type='sports',card_title='Ice Skating during Winter break',card_location='Yost Ice Arena, 1116 S State Street, Ann Arbor, MI', card_date_from='14 Dec, 2017', card_time_from='1 PM', card_date_to='14 Dec, 2017', card_time_to='1 PM', card_people_count = 8, card_valid_date='11 Dec, 2017',card_valid_time='10 PM', card_host_id='Pallavi Gupta',card_imgpath='x',isHost=True,isFavorite=False,isImageSet=False)
     db.session.add(samplecard_1)
     db.session.add(samplecard_2)
     db.session.add(samplecard_3)
-    db.session.commit()
-
-def add():
-    samplecard = Card(card_id=randint(0,100), card_activity_type='food',card_title='Lunch at Zingermann\'s',card_location='Zingermann\'s Delicatessen, Ann Arbor, MI', card_date_from='6 Dec, 2017', card_time_from='12 PM', card_date_to='6 Dec, 2017', card_time_to='1 PM', card_people_count = 2, card_valid_date='6 Dec, 2017',card_valid_time='10 AM', card_host_id='Ling Zhong',card_imgpath='x',isHost=False,isFavorite=False,isImageSet=False)
-    db.session.add(samplecard)
     db.session.commit()
 
 @app.route('/callback/<provider>')
@@ -241,6 +232,4 @@ def oauth_callback(provider):
 
 if __name__ == '__main__':
     db.create_all()
-    app.run(debug=True)
-    add()
     app.run(debug=True)

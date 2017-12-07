@@ -3,7 +3,7 @@
 {% endblock %}
 {% block content %}
     <div class="content">
-        <form class="activity-form" action="http://localhost:5000/createpreview-test" method="post" name="create">
+        <form class="activity-form" action=" {{ url_for('createpreview')}}" method="post" name="create">
             <div class="row">
                 <div class="offset-1 col-2 right">
                     <img class="form-label" src="../static/img/activity.svg">
