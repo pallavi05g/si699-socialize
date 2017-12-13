@@ -1,3 +1,4 @@
+from __future__ import print_function
 from flask import Flask, redirect, url_for, render_template, flash, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user,\
@@ -9,12 +10,14 @@ from flask_wtf import Form
 from wtforms import StringField,SelectField,DateField,DateTimeField
 from wtforms.validators import DataRequired
 from random import randint
+import sqlite3
+import sys
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'top secret!'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['OAUTH_CREDENTIALS'] = {
-    'facebook': {
+   'facebook': {
         'id': '',
         'secret': ''
     }
@@ -24,6 +27,14 @@ db = SQLAlchemy(app)
 lm = LoginManager(app)
 
 lm.login_view = 'index'
+
+conn = sqlite3.connect('db1.sqlite')
+print("Opened database successfully")
+
+conn.execute('CREATE TABLE IF NOT EXISTS profiledata (name TEXT, dob TEXT, location TEXT, interests TEXT)')
+print("Table created successfully")
+
+conn.close()
 
 class login_info(UserMixin, db.Model):
     __tablename__ = 'login_info'
@@ -35,16 +46,16 @@ class login_info(UserMixin, db.Model):
     profiles = relationship('Person', backref='Person.person_id',primaryjoin='login_info.id==Person.person_id', lazy='dynamic')
 
 class CreateCard(Form):
-    activity_type = SelectField('activity_type', validators=[DataRequired()], choices=[('choose','Choose Activity Type'),('tour','Local Tours'),('adv','Adventure'),('food','Food'),('camping','Camping'),('trekking','Trekking'),('movies','Movies/Plays')], default=1)
-    title = StringField('title', validators=[DataRequired()], render_kw={"placeholder": "Add Title"})
-    location = StringField('location', validators=[DataRequired()], render_kw={"placeholder": "Add Location"})
-    date_from = DateField('date_from', validators=[DataRequired()], render_kw={"placeholder": "mm/dd/yyyy"})
-    time_from = DateTimeField('time_from', validators=[DataRequired()], format='%m-%d-%Y', render_kw={"placeholder": "hh/mm am/pm"})
-    date_to = DateField('date_to', validators=[DataRequired()], format='%m-%d-%Y', render_kw={"placeholder": "mm/dd/yyyy"})
-    time_to = DateTimeField('time_to', validators=[DataRequired()], format='%m-%d-%Y', render_kw={"placeholder": "hh/mm am/pm"})
-    people_count = StringField('people_count', validators=[DataRequired()], render_kw={"placeholder": "Enter Number of People"})
-    valid_date = DateField('valid_date', validators=[DataRequired()], render_kw={"placeholder": "mm/dd/yyyy"})
-    valid_time = DateTimeField('valid_time', validators=[DataRequired()], render_kw={"placeholder": "hh:mm am/pm"})
+    activity_type = SelectField('activity_type', validators=[], choices=[('choose','Choose Activity Type'),('tour','Local Tours'),('adv','Adventure'),('food','Food'),('camping','Camping'),('trekking','Trekking'),('movie','Movies/Plays')], default=1)
+    title = StringField('title', validators=[], render_kw={"placeholder": "Add Title"})
+    location = StringField('location', validators=[], render_kw={"placeholder": "Add Location"})
+    date_from = StringField('date_from', validators=[], render_kw={"placeholder": "mm/dd/yyyy"})
+    time_from = StringField('time_from', validators=[],  render_kw={"placeholder": "hh/mm am/pm"})
+    date_to = StringField('date_to', validators=[], render_kw={"placeholder": "mm/dd/yyyy"})
+    time_to = StringField('time_to', validators=[], render_kw={"placeholder": "hh/mm am/pm"})
+    people_count = StringField('people_count', validators=[], render_kw={"placeholder": "Enter Number of People"})
+    valid_date = StringField('valid_date', validators=[], render_kw={"placeholder": "mm/dd/yyyy"})
+    valid_time = StringField('valid_time', validators=[], render_kw={"placeholder": "hh:mm am/pm"})
 
 class Badge(db.Model):
     __tablename__ = 'badge'
@@ -169,28 +180,31 @@ def settings():
 @app.route('/create', methods=['GET','POST'])
 def create():
     # create = CreateForm()
-    form = CreateCard(request.form)
+    form = CreateCard()#request.form)
     if request.method == 'POST':
         if form.validate_on_submit():
-            var1 = Card()
-            var1.card_activity_type = form.activity_type.data
-            var1.card_title = form.title.data
-            var1.card_location = form.location.data
-            var1.card_date_from = form.date_from.data
-            var1.card_time_from = form.time_from.data
-            var1.card_date_to = form.date_to.data
-            var1.card_time_to = form.time_to.data
-            var1.card_people_count = form.people_count.data
-            var1.card_valid_date = form.valid_date.data
-            var1.card_valid_time = form.valid_time.data
-            var1.card_host_id = 1
-            var1.card_imgpath = 'test'
-            var1.isHost = True
-            var1.isFavorite = False
-            var1.isImageSet = False
+            var1 = Card(
+            card_activity_type = form.activity_type.data,
+            card_title = form.title.data,
+            card_location = form.location.data,
+            card_date_from = form.date_from.data,
+            card_time_from = form.time_from.data,
+            card_date_to = form.date_to.data,
+            card_time_to = form.time_to.data,
+            card_people_count = form.people_count.data,
+            card_valid_date = form.valid_date.data,
+            card_valid_time = form.valid_time.data,
+            card_host_id = current_user.username,
+            card_imgpath = 'test',
+            isHost = True,
+            isFavorite = False,
+            isImageSet = False)
             db.session.add(var1)
             db.session.commit()
-            return redirect(url_for('activitydetail', id=1))
+            return redirect(url_for('activitydetail', id = var1.card_id))
+        else:
+            flash(form.errors)
+            return render_template('create.html', pagetitle='Create Activity', form=form)
     elif request.method == 'GET':
         return render_template('create.html', pagetitle='Create Activity', form=form)
 
@@ -236,6 +250,7 @@ def generate_data():
     db.session.add(samplecard_7)
 
     db.session.commit()
+    return redirect(url_for('home'))
 
 @app.route('/callback/<provider>')
 def oauth_callback(provider):
@@ -253,6 +268,29 @@ def oauth_callback(provider):
         db.session.commit()
     login_user(user, True)
     return redirect(url_for('home'))
+
+@app.route('/addrec',methods = ['POST', 'GET'])
+def addrec():
+    print('Hello world!', file=sys.stderr)
+    if request.method == 'POST':
+        try:
+            name = request.form['name']
+            dob = request.form['dob']
+            location = request.form['location']
+            interests = request.form['interests']
+        
+            with sqlite3.connect("db1.sqlite") as con:
+                cur = con.cursor()
+                cur.execute("INSERT INTO profiledata (name,dob,location,interests) VALUES (?,?,?,?)",(name,dob,location,interests) )            
+                con.commit()
+                msg = "Record successfully added"
+                print(msg)
+        except:
+            con.rollback()
+            msg = "error in insert operation"
+        finally:
+            return redirect(url_for('home'))
+            con.close()
 
 if __name__ == '__main__':
     db.create_all()

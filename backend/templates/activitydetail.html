@@ -12,7 +12,7 @@
                 <ul class="card-overlay-details">
                     <li>
                         <img src="{{url_for('static', filename='img/profile.svg')}}" alt="profile">
-                        <p class="host-name-card">Ling Zhong</p>
+                        <p class="host-name-card">{{ current_user.username }}</p>
                     </li>
                     <li class="group">
                         <img src="{{url_for('static', filename='img/group-white.svg')}}" alt="profile">
@@ -63,7 +63,7 @@
         <div class="row activity-details">
             <div class="col-2 centered">
                 <img class="host-img centered" src="{{url_for('static', filename='img/person.svg')}}">
-                <p class="host-name">Ling Zhong</p>
+                <p class="host-name">{{ current_user.username }}</p>
             </div>
             <div class="col-10">
                 <div class="activity-badges">

@@ -22,7 +22,7 @@
                 <img class="profile-label" src="{{url_for('static', filename='img/name.svg')}}">
             </div>
             <div class="col-9">
-                <p class="profile-text">Purva Sane</p>
+                <p class="profile-text">{{ current_user.username }}</p>
             </div>
         </div>
         <div class="row">
@@ -30,10 +30,10 @@
                 <img class="profile-label" src="{{url_for('static', filename='img/cake.svg')}}">
             </div>
             <div class="col-7">
-                <p class="profile-text">August 12, 1992</p>
+                <p class="profile-text" id="dob">{{ dob }}</p>
             </div>
-            <div class="col-2">
-                <img class="profile-label" src="{{url_for('static', filename='img/hide.svg')}}" style="width:25px">
+            <div class="col-2 button">
+                <button id="hidebutton"><img class="profile-label" src="{{url_for('static', filename='img/hide.svg')}}" style="width:25px"></button>
             </div>
         </div>
         <div class="row">
@@ -112,6 +112,13 @@
         </div>
     </div>
 {% endblock %}
+{% block scripts %}
+<script>
+$(".hidebutton").click(function(){
+  $("#dob").toggle();
+});
+</script>
+{% endblock scripts %}
 {% block profile %}
 <a href="profile"><img src="{{url_for('static', filename='img/profile-green.svg')}}"></a>
 {% endblock %}
