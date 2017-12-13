@@ -18,8 +18,13 @@ app.config['SECRET_KEY'] = 'top secret!'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['OAUTH_CREDENTIALS'] = {
    'facebook': {
+<<<<<<< HEAD
         'id': '',
         'secret': ''
+=======
+        'id': '1874301032583415',
+        'secret': 'b9bcd6f1e730bb2f16462f224669b61e'
+>>>>>>> origin/master
     }
 }
 
