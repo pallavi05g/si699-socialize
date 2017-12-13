@@ -8,7 +8,7 @@
             <a href="interested"><button>Interested</button></a>
             <a href="history"><button>History</button></a>
         </div>
-        <form class="profile-form" action="#" method="post">
+        <form class="profile-form" action = "{{ url_for('addrec') }}" method = "POST">
             <!-- <div class="col-xs-12 centered">
                 <img class="profile-pic" src="img/person.svg">
                 <img class="pic-edit" src="img/edit.svg">
@@ -29,7 +29,7 @@
                     <img class="profile-label" src="{{url_for('static', filename='img/name.svg')}}">
                 </div>
                 <div class="col-8">
-                    <input class="profile-field" type="text" placeholder="Edit your name">
+                    <input class="profile-field" type="text" placeholder="Edit your name" name="name"/>
                 </div>
             </div>
             <div class="row">
@@ -37,7 +37,7 @@
                     <img class="profile-label" src="{{url_for('static', filename='img/cake.svg')}}">
                 </div>
                 <div class="col-8">
-                    <input class="profile-field" type="date" placeholder="Edit your birthday">
+                    <input class="profile-field" type="text" placeholder="Edit your birthday" name="dob"/>
                 </div>
             </div>
             <div class="row">
@@ -45,7 +45,7 @@
                     <img class="profile-label" src="{{url_for('static', filename='img/pin-dgrey.svg')}}">
                 </div>
                 <div class="col-8">
-                    <input class="profile-field" type="text" placeholder="Edit your location">
+                    <input class="profile-field" type="text" placeholder="Edit your location" name="location"/>
                 </div>
             </div>
             <div class="row">
@@ -53,7 +53,7 @@
                     <img class="profile-label" src="{{url_for('static', filename='img/interests.svg')}}">
                 </div>
                 <div class="col-8">
-                    <input class="profile-field" type="text" placeholder="Add new interests">
+                    <input class="profile-field" type="text" placeholder="Add new interests" name="interests"/>
                 </div>
                 <div class="offset-3 col-9">
                     <p class="p-interests food">Food</p>
@@ -63,6 +63,7 @@
             </div>
             <div class="row">
                 <a href="profile" class="btn submit-btn" type="button">Save</a>
+                <input type = "submit" value = "Save"/><br>
             </div>
         </form>
     </div>

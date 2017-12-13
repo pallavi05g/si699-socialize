@@ -9,23 +9,23 @@
     </div>
     <div class="collapse" id="collapseExample">
         <div class="container home-nav-container">
-            <a href="#"><button class="btn home-btn">Popular</button></a>
-            <a href=""><button class="btn home-btn">Near Me</button></a>
-            <a href="#"><button class="btn home-btn">Expiring</button></a>
-            <a href="#"><button class="btn home-btn">Local Tours</button></a>
-            <a href="#"><button class="btn home-btn">Adventure</button></a>
-            <a href="#"><button class="btn home-btn">Food</button></a>
-            <a href="#"><button class="btn home-btn">Treks</button></a>
-            <a href="#"><button class="btn home-btn">Camping</button></a>
-            <a href="#"><button class="btn home-btn">Movies</button></a>
-            <a href="#"><button class="btn home-btn">Sports</button></a>
-            <a href="#"><button class="btn home-btn">Suggested</button></a>
-            <a href="#"><button class="btn home-btn">All</button></a>
+            <button class="btn home-btn">Popular</button>
+            <button class="btn home-btn">Near Me</button>
+            <button class="btn home-btn">Expiring</button>
+            <button class="btn home-btn" id="localtours-filter">Local Tours</button>
+            <button class="btn home-btn" id="adventure-filter">Adventure</button>
+            <button class="btn home-btn" id="food-filter">Food</button>
+            <button class="btn home-btn" id="treks-filter">Treks</button>
+            <button class="btn home-btn" id="camping-filter">Camping</button>
+            <button class="btn home-btn" id="movie-filter">Movies</button>
+            <button class="btn home-btn" id="sports-filter">Sports</button>
+            <button class="btn home-btn">Suggested</button>
+            <button class="btn home-btn" id="all-filter">All</button>
         </div>
     </div>
     <div class="row">
         {% for card in cardData %}
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4 {{card.card_activity_type}}-filter">
             <a href="{{url_for('activitydetail', id=card.card_id)}}">
                 <div class="card img-fluid">
                     <div class="default-card {{card.card_activity_type}}">

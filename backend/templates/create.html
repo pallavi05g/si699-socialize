@@ -3,7 +3,8 @@
 {% endblock %}
 {% block content %}
     <div class="content">
-        <form class="activity-form" action="{{ url_for('activitydetail') }}" method="post" name="create">
+        <form class="activity-form" action="{{ url_for('create') }}" method="post" name="create">
+            {{form.hidden_tag()}}
             <div class="row">
                 <div class="offset-1 col-2 right">
                     <img class="form-label" src="{{url_for('static', filename='img/activity.svg')}}">
@@ -75,7 +76,7 @@
                 </div>
             </div> -->
             <div class="row centered">
-                <input class="btn submit-btn" type="submit" value="Next >">
+                <input class="btn submit-btn" type="submit" value="Create">
             </div>
         </form>
     </div>
