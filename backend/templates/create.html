@@ -37,7 +37,7 @@
                     {{ form.date_from(class_="date-time-from dtpick") }}
                 </div>
                 <div class="col-3">
-                    {{ form.time_from(class_="date-time-from tmpick") }}
+                    {{ form.time_from(class_="date-time-from") }}
                 </div>
             </div>
             <div class="row">
@@ -45,7 +45,7 @@
                     {{ form.date_to(class_="date-time-to dtpick") }}
                 </div>
                 <div class="col-3">
-                    {{ form.time_to(class_="date-time-to tmpick") }}
+                    {{ form.time_to(class_="date-time-to") }}
                 </div>
             </div>
             <div class="row">
@@ -61,7 +61,7 @@
                     <img class="form-label" src="{{url_for('static', filename='img/hour-glass.svg')}}">
                 </div>
                 <div class="col-5">
-                    {{ form.valid_date(class_="date-time-valid") }}
+                    {{ form.valid_date(class_="date-time-valid dtpick") }}
                 </div>
                 <div class="col-3">
                     {{ form.valid_time(class_="date-time-valid") }}

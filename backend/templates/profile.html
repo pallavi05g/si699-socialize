@@ -29,11 +29,8 @@
             <div class="col-3 right">
                 <img class="profile-label" src="{{url_for('static', filename='img/cake.svg')}}">
             </div>
-            <div class="col-7">
-                <p class="profile-text" id="dob">{{ dob }}</p>
-            </div>
-            <div class="col-2 button">
-                <button id="hidebutton"><img class="profile-label" src="{{url_for('static', filename='img/hide.svg')}}" style="width:25px"></button>
+            <div class="col-9">
+                <p class="profile-text" id="dob">Enter your date of birth</p>
             </div>
         </div>
         <div class="row">
@@ -41,7 +38,7 @@
                 <img class="profile-label" src="{{url_for('static', filename='img/pin-dgrey.svg')}}">
             </div>
             <div class="col-9">
-                <p class="profile-text">Ann Arbor</p>
+                <p class="profile-text">Enter your location</p>
             </div>
         </div>
         <div class="row">
@@ -112,13 +109,6 @@
         </div>
     </div>
 {% endblock %}
-{% block scripts %}
-<script>
-$(".hidebutton").click(function(){
-  $("#dob").toggle();
-});
-</script>
-{% endblock scripts %}
 {% block profile %}
 <a href="profile"><img src="{{url_for('static', filename='img/profile-green.svg')}}"></a>
 {% endblock %}
