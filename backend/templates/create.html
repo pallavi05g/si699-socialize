@@ -34,18 +34,18 @@
                     <img class="form-label" src="{{url_for('static', filename='img/time.svg')}}">
                 </div>
                 <div class="col-5">
-                    {{ form.date_from(class_="date-time-from") }}
+                    {{ form.date_from(class_="date-time-from dtpick") }}
                 </div>
                 <div class="col-3">
-                    {{ form.time_from(class_="date-time-from") }}
+                    {{ form.time_from(class_="date-time-from tmpick") }}
                 </div>
             </div>
             <div class="row">
                 <div class="offset-3 col-5">
-                    {{ form.date_to(class_="date-time-to") }}
+                    {{ form.date_to(class_="date-time-to dtpick") }}
                 </div>
                 <div class="col-3">
-                    {{ form.time_to(class_="date-time-to") }}
+                    {{ form.time_to(class_="date-time-to tmpick") }}
                 </div>
             </div>
             <div class="row">

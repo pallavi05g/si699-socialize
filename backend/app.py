@@ -18,13 +18,8 @@ app.config['SECRET_KEY'] = 'top secret!'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['OAUTH_CREDENTIALS'] = {
    'facebook': {
-<<<<<<< HEAD
         'id': '',
         'secret': ''
-=======
-        'id': '1874301032583415',
-        'secret': 'b9bcd6f1e730bb2f16462f224669b61e'
->>>>>>> origin/master
     }
 }
 
@@ -54,10 +49,10 @@ class CreateCard(Form):
     activity_type = SelectField('activity_type', validators=[], choices=[('choose','Choose Activity Type'),('tour','Local Tours'),('adv','Adventure'),('food','Food'),('camping','Camping'),('trekking','Trekking'),('movie','Movies/Plays')], default=1)
     title = StringField('title', validators=[], render_kw={"placeholder": "Add Title"})
     location = StringField('location', validators=[], render_kw={"placeholder": "Add Location"})
-    date_from = StringField('date_from', validators=[], render_kw={"placeholder": "mm/dd/yyyy"})
-    time_from = StringField('time_from', validators=[],  render_kw={"placeholder": "hh/mm am/pm"})
-    date_to = StringField('date_to', validators=[], render_kw={"placeholder": "mm/dd/yyyy"})
-    time_to = StringField('time_to', validators=[], render_kw={"placeholder": "hh/mm am/pm"})
+    date_from = DateField('date_from', validators=[], render_kw={"placeholder": "mm/dd/yyyy"})
+    time_from = DateTimeField('time_from', validators=[],  render_kw={"placeholder": "hh/mm am/pm"})
+    date_to = DateField('date_to', validators=[], render_kw={"placeholder": "mm/dd/yyyy"})
+    time_to = DateTimeField('time_to', validators=[], render_kw={"placeholder": "hh/mm am/pm"})
     people_count = StringField('people_count', validators=[], render_kw={"placeholder": "Enter Number of People"})
     valid_date = StringField('valid_date', validators=[], render_kw={"placeholder": "mm/dd/yyyy"})
     valid_time = StringField('valid_time', validators=[], render_kw={"placeholder": "hh:mm am/pm"})
@@ -188,6 +183,7 @@ def create():
     form = CreateCard()#request.form)
     if request.method == 'POST':
         if form.validate_on_submit():
+            return form.date_from.data.strftime('%x')
             var1 = Card(
             card_activity_type = form.activity_type.data,
             card_title = form.title.data,
@@ -235,17 +231,17 @@ def generate_data():
     samplecard_1 = Card(card_activity_type='food',card_title='Lunch at Zingermann\'s',card_location='Zingermann\'s Delicatessen, 422 Detroit Street, Ann Arbor, MI 48104', card_date_from='6 Dec, 2017', card_time_from='12 PM', card_date_to='6 Dec, 2017', card_time_to='1 PM', card_people_count = 2, card_valid_date='6 Dec, 2017',card_valid_time='10 AM', card_host_id='Ling Zhong',card_imgpath='x',isHost=False,isFavorite=False,isImageSet=False)
     samplecard_2 = Card(card_activity_type='food',card_title='Lunch at AMA\'s',card_location='Ama Bistro Family Restaurant, 215 S State Street, Ann Arbor, MI 48104', card_date_from='7 Dec, 2017', card_time_from='12 PM', card_date_to='6 Dec, 2017', card_time_to='1 PM', card_people_count = 2, card_valid_date='6 Dec, 2017',card_valid_time='10 AM', card_host_id='Ling Zhong',card_imgpath='x',isHost=False,isFavorite=False,isImageSet=False)
     samplecard_3 = Card(card_activity_type='sports',card_title='Ice Skating during Winter break',card_location='Yost Ice Arena, 1116 S State Street, Ann Arbor, MI', card_date_from='14 Dec, 2017', card_time_from='1 PM', card_date_to='14 Dec, 2017', card_time_to='1 PM', card_people_count = 8, card_valid_date='11 Dec, 2017',card_valid_time='10 PM', card_host_id='Pallavi Gupta',card_imgpath='x',isHost=True,isFavorite=False,isImageSet=False)
-    
+
     samplecard_4 = Card(card_activity_type='tour',card_title='UMMA Tour',card_location='University of Michigan Museum of Art, 525 S State St, Ann Arbor, MI 48109', card_date_from='11 Dec, 2017', card_time_from='2 PM', card_date_to='11 Dec, 2017', card_time_to='4 PM', card_people_count = 5, card_valid_date='9 Dec, 2017',card_valid_time='8 PM', card_host_id='Purva Sane',card_imgpath='x',isHost=True,isFavorite=False,isImageSet=False)
-    
+
     samplecard_5 = Card(card_activity_type='adv',card_title='Skiing over Winter Break',card_location='Mount Brighton, 4141 Bauer Rd, Brighton, MI 48116', card_date_from='15 Dec, 2017', card_time_from='10 AM', card_date_to='18 Dec, 2017', card_time_to='11 PM', card_people_count = 7, card_valid_date='10 Dec, 2017',card_valid_time='3 AM', card_host_id='Purva Sane',card_imgpath='x',isHost=True,isFavorite=False,isImageSet=False)
-    
+
     samplecard_5 = Card(card_activity_type='sports',card_title='Ice Skating during Winter break',card_location='Yost Ice Arena, 1116 S State Street, Ann Arbor, MI', card_date_from='14 Dec, 2017', card_time_from='1 PM', card_date_to='14 Dec, 2017', card_time_to='1 PM', card_people_count = 8, card_valid_date='11 Dec, 2017',card_valid_time='10 PM', card_host_id='Pallavi Gupta',card_imgpath='x',isHost=True,isFavorite=False,isImageSet=False)
-    
+
     samplecard_6 = Card(card_activity_type='movie',card_title='Ferdinand Movie Outing',card_location='Quality 16, 3686 Jackson Road, Ann Arbor, MI 48103', card_date_from='15 Dec, 2017', card_time_from='8 PM', card_date_to='15 Dec, 2017', card_time_to='10 PM', card_people_count = 4, card_valid_date='12 Dec, 2017',card_valid_time='9 AM', card_host_id='Ling Zhong',card_imgpath='x',isHost=False,isFavorite=False,isImageSet=False)
-    
+
     samplecard_7 = Card(card_activity_type='camping',card_title='Camping at Sleeping Bear Dunes',card_location='Sleeping Bear Dunes National Lakesho', card_date_from='19 Dec, 2017', card_time_from='6 AM', card_date_to='24 Dec, 2017', card_time_to='11 PM', card_people_count = 7, card_valid_date='12 Dec, 2017',card_valid_time='11 PM', card_host_id='Pallavi Gupta',card_imgpath='x',isHost=False,isFavorite=False,isImageSet=False)
-    
+
     db.session.add(samplecard_1)
     db.session.add(samplecard_2)
     db.session.add(samplecard_3)
@@ -283,10 +279,10 @@ def addrec():
             dob = request.form['dob']
             location = request.form['location']
             interests = request.form['interests']
-        
+
             with sqlite3.connect("db1.sqlite") as con:
                 cur = con.cursor()
-                cur.execute("INSERT INTO profiledata (name,dob,location,interests) VALUES (?,?,?,?)",(name,dob,location,interests) )            
+                cur.execute("INSERT INTO profiledata (name,dob,location,interests) VALUES (?,?,?,?)",(name,dob,location,interests) )
                 con.commit()
                 msg = "Record successfully added"
                 print(msg)
